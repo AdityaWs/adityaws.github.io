@@ -169,6 +169,70 @@
             <div class="creations--list" id="creations--list"></div>
         </div>
 
+        <div class="contact">
+            <button id="contact--open">Mau Berbicara?</button>
+        </div>
+
+        <div class="contactlist" id="contactlist">
+            <div class="contactlist--title">
+                <h2>MAU BERBICARA?</h2>
+                <button id="contact--close"><img src="./icon/x-lg.svg" alt=""></button>
+            </div>
+            <div class="contactlist--list">
+                <p>LEWAT MANA NIH?</p>
+                <div class="contactlist--item">
+                    <img src="./icon/instagram.svg" width="20px">
+                    <a href="https://instagram.com/aditya_wahyu_dev" target="_blank">@aditya_wahyu_dev</a>
+                    <span>(DM)</span>
+                </div>
+                <div class="contactlist--item">
+                    <img src="./icon/envelope-at.svg" width="20px">
+                    <a href="mailto:adityaaw84@gmail.com">adityaaw84@gmail.com</a>
+                    <span>(EMAIL)</span>
+                </div>
+                <p>SOSIAL MEDIA LAIN</p>
+                <div class="contactlist--item">
+                    <img src="./icon/threads.svg" width="20px">
+                    <a target="_blank" href="https://www.threads.net/@aditya_wahyu_dev">@aditya_wahyu_dev</a>
+                    <span>(THREADS)</span>
+                </div>
+                <div class="contactlist--item">
+                    <img src="./icon/github.svg" width="20px">
+                    <a target="_blank" href="https://github.com/AdityaWs">AdityaWs</a>
+                    <span>(GITHUB pribadi)</span>
+                </div>
+                <div class="contactlist--item">
+                    <img src="./icon/github.svg" width="20px">
+                    <a target="_blank" href="https://github.com/MadByAd">MadByAd</a>
+                    <span>(GITHUB utama)</span>
+                </div>
+                <div class="contactlist--item">
+                    <img src="./icon/youtube.svg" width="20px">
+                    <a target="_blank" href="https://youtube.com/@MadByAd">@MadByAd</a>
+                    <span>(YOUTUBE)</span>
+                </div>
+                <div class="contactlist--item">
+                    <img src="./icon/controller.svg" width="20px">
+                    <a target="_blank" href="https://madbyad.itch.io">MadByAd</a>
+                    <span>(Itch.IO)</span>
+                </div>
+                <div class="contactlist--item">
+                    <img src="./icon/google-play.svg" width="20px">
+                    <a target="_blank" href="https://play.google.com/store/apps/dev?id=7894522532614647574">MadByAd</a>
+                    <span>(PLAYSTORE)</span>
+                </div>
+                <div class="contactlist--item">
+                    <img src="./icon/newspaper.svg" width="20px">
+                    <a target="_blank" href="https://madbyad.blogspot.com">MadByAd_Dev_Blog</a>
+                    <span>(Blogger)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="about">
+            <button>Tentang Saya</button>
+        </div> -->
+
         <script>
 
             let creationOpen = false;
@@ -223,6 +287,14 @@
                     links.style.height = "0px";
                 }
             }
+
+            document.getElementById("contact--open").addEventListener("click", function(){
+                document.getElementById("contactlist").style.left = "0%";
+            });
+
+            document.getElementById("contact--close").addEventListener("click", function(){
+                document.getElementById("contactlist").style.left = "100%";
+            });
 
         </script>
 

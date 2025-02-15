@@ -354,6 +354,101 @@ body {
 }
 
 
+/*  */
+
+.contact {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    right: 0%;
+    rotate: -90deg;
+    transform: translate(calc(50% - 1.5rem), calc(100% + 0.5rem));
+    transform-origin: center center;
+}
+.about {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 0%;
+    rotate: -90deg;
+    transform: translate(calc(50% - 1.5rem), calc(-50% - 1.5rem));
+    transform-origin: center center;
+}
+.contact button, .about button {
+    background: gainsboro;
+    padding: 1rem 1.5rem;
+    border: none;
+    font-family: "Jetbrains";
+    cursor: pointer;
+    transition: 0.5s;
+}
+.contact button:hover, .about button:hover {
+    background: gray;
+    color: aliceblue;
+}
+
+.contactlist {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    z-index: 9;
+    width: 100vw;
+    height: 100vh;
+    background: gainsboro;
+    display: flex;
+    flex-direction: row;
+    transition: 1.5s;
+}
+.contactlist--title {
+    width: fit-content;
+    writing-mode: sideways-lr;
+    padding: 1.5em 0.5em;
+    border-right: 1px solid gray;
+    font-size: 2.5rem;
+    font-family: "Jetbrains Bold";
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contactlist--title button {
+    aspect-ratio: 1 / 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.contactlist--title img {
+    width: 2.5rem;
+}
+.contactlist--list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: "Jetbrains";
+    font-size: 0.875rem;
+    padding: 1rem;
+}
+.contactlist--list p {
+    font-family: "Jetbrains Bold";
+    font-size: 1.25rem;
+}
+.contactlist--item {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+.contactlist--item a {
+    text-decoration: none;
+    color: hsl(272, 85%, 37%);
+}
+
+
 /* For Small Desktop / Laptop Screen */
 
 @media only screen and (max-width: 1080px) {
@@ -367,6 +462,9 @@ body {
     }
     .creations--title {
         height: calc(119px / 2 - 1px);
+    }
+    .contactlist--title, .contactlist--title img {
+        font-size: 2rem;
     }
 }
 
@@ -392,6 +490,9 @@ body {
         border-width: 2px;
         border-color: #666;
     }
+    .contactlist--title, .contactlist--title img {
+        font-size: 2.25rem;
+    }
 }
 
 
@@ -416,5 +517,8 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
+    }
+    .contactlist--title, .contactlist--title img {
+        font-size: 1.35rem;
     }
 }
