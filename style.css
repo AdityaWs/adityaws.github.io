@@ -486,6 +486,7 @@ body {
     max-width: 512px;
     text-align: justify;
     line-height: 1.75;
+    font-size: 0.875rem;
     font-family: "Jetbrains";
 }
 .aboutpanel--content--big {
@@ -507,7 +508,7 @@ body {
     .creations--title {
         height: calc(119px / 2 - 1px);
     }
-    .contactlist--title, .contactlist--title img, .aboutpanel--title img {
+    .contactlist--title, .aboutpanel--title, .contactlist--title img, .aboutpanel--title img {
         font-size: 2rem;
     }
 }
@@ -534,7 +535,7 @@ body {
         border-width: 2px;
         border-color: #666;
     }
-    .contactlist--title, .contactlist--title img, .aboutpanel--title img {
+    .contactlist--title, .aboutpanel--title, .contactlist--title img, .aboutpanel--title img {
         font-size: 2.25rem;
     }
 }
@@ -562,7 +563,10 @@ body {
         align-items: center;
         gap: 0.5rem;
     }
-    .contactlist--title, .contactlist--title img, .aboutpanel--title img {
+    .contactlist--title, .aboutpanel--title, .contactlist--title img, .aboutpanel--title img {
         font-size: 1.35rem;
+    }
+    .contactlist--title, .aboutpanel--title {
+        padding-bottom: 6rem;
     }
 }
