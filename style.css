@@ -382,9 +382,13 @@ body {
     cursor: pointer;
     transition: 0.5s;
 }
-.contact button:hover, .about button:hover {
-    background: gray;
-    color: aliceblue;
+.contact button:hover {
+    background: antiquewhite;
+    color: maroon;
+}
+.about button:hover {
+    background: ghostwhite;
+    color: navy;
 }
 
 .contactlist {
@@ -394,30 +398,32 @@ body {
     z-index: 9;
     width: 100vw;
     height: 100vh;
-    background: gainsboro;
+    background: antiquewhite;
+    color: maroon;
     display: flex;
     flex-direction: row;
-    transition: 1.5s;
+    transition: left 1.5s;
 }
-.contactlist--title {
+.contactlist--title, .aboutpanel--title {
     width: fit-content;
     writing-mode: sideways-lr;
     padding: 1.5em 0.5em;
-    border-right: 1px solid gray;
+    border-right: 1px solid maroon;
+    border-left: 1px solid maroon;
     font-size: 2.5rem;
     font-family: "Jetbrains Bold";
-    color: black;
+    color: maroon;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.contactlist--title button {
+.contactlist--title button, .aboutpanel--title button {
     aspect-ratio: 1 / 1;
     background: none;
     border: none;
     cursor: pointer;
 }
-.contactlist--title img {
+.contactlist--title img, .aboutpanel--title img {
     width: 2.5rem;
 }
 .contactlist--list {
@@ -445,7 +451,45 @@ body {
 }
 .contactlist--item a {
     text-decoration: none;
-    color: hsl(272, 85%, 37%);
+    color: black;
+}
+
+
+/*  */
+
+.aboutpanel {
+    position: fixed;
+    top: 0;
+    right: 100%;
+    z-index: 9;
+    width: 100vw;
+    height: 100vh;
+    background: ghostwhite;
+    color: navy;
+    display: flex;
+    flex-direction: row;
+    transition: right 1.5s;
+}
+.aboutpanel--title {
+    color: navy;
+    border-color: navy;
+}
+.aboutpanel--content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+}
+.aboutpanel--content p {
+    width: 100%;
+    max-width: 512px;
+    text-align: justify;
+    line-height: 1.75;
+    font-family: "Jetbrains";
+}
+.aboutpanel--content--big {
+    font-size: 2em;
 }
 
 
@@ -463,7 +507,7 @@ body {
     .creations--title {
         height: calc(119px / 2 - 1px);
     }
-    .contactlist--title, .contactlist--title img {
+    .contactlist--title, .contactlist--title img, .aboutpanel--title img {
         font-size: 2rem;
     }
 }
@@ -490,7 +534,7 @@ body {
         border-width: 2px;
         border-color: #666;
     }
-    .contactlist--title, .contactlist--title img {
+    .contactlist--title, .contactlist--title img, .aboutpanel--title img {
         font-size: 2.25rem;
     }
 }
@@ -518,7 +562,7 @@ body {
         align-items: center;
         gap: 0.5rem;
     }
-    .contactlist--title, .contactlist--title img {
+    .contactlist--title, .contactlist--title img, .aboutpanel--title img {
         font-size: 1.35rem;
     }
 }

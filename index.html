@@ -229,9 +229,24 @@
             </div>
         </div>
 
-        <!-- <div class="about">
+        <div class="about" id="about--open">
             <button>Tentang Saya</button>
-        </div> -->
+        </div>
+
+        <div class="aboutpanel" id="aboutpanel">
+            <div class="aboutpanel--content">
+                <p>
+                    <span class="aboutpanel--content--big">Halo!</span> <br>
+                    perkenalkan nama saya adalah Aditya Wahyu Santoso sering dipanggil Adit. Nama developer saya adalah MadByAd yang merupakan singkatan dari Made By Aditya.
+                    Bisa dikatakan saya adalah seorang programmer yang berpengalaman, saya memiliki 3.5 tahun pengalaman dalam dunia pemrograman mempunya skill di bidang
+                    Software, Web, dan Game Development. Saya lahir di Indonesia tahun 2009 dan sekarang menduduki bangku SMK
+                </p>
+            </div>
+            <div class="aboutpanel--title">
+                <h2>TENTANG SAYA</h2>
+                <button id="about--close"><img src="./icon/x-lg.svg" alt=""></button>
+            </div>
+        </div>
 
         <script>
 
@@ -294,6 +309,14 @@
 
             document.getElementById("contact--close").addEventListener("click", function(){
                 document.getElementById("contactlist").style.left = "100%";
+            });
+
+            document.getElementById("about--open").addEventListener("click", function(){
+                document.getElementById("aboutpanel").style.right = "0%";
+            });
+
+            document.getElementById("about--close").addEventListener("click", function(){
+                document.getElementById("aboutpanel").style.right = "100%";
             });
 
         </script>
