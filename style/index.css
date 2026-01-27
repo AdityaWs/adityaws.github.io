@@ -477,7 +477,7 @@ html {
         text-align: center;
         display: flex;
         flex-direction: column;
-        padding: 2rem;
+        padding: 1rem;
     }
     .skills--content * {
         width: 100%;
@@ -513,6 +513,7 @@ html {
     }
     .contact > div {
         max-width: 800px;
+        padding: 1.5rem !important;
     }
     .contact--list li {
         font-size: 1rem !important;
