@@ -48,7 +48,8 @@
 }
 
 .project--image img {
-    width: 630px;
+    width: 100%;
+    max-width: 630px;
     object-fit: contain;
 }
 
@@ -87,5 +88,8 @@
         font-size: 1rem;
         top: calc(50% + 7.5rem);
         width: 500px;
+    }
+    .project {
+        padding: 2rem;
     }
 }
