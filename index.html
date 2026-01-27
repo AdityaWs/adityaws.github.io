@@ -1,325 +1,431 @@
 <!DOCTYPE html>
-<html lang="id">
-    <head>
+<html lang="en">
+<head>
 
-        <title>Aditya Ws</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=7">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <meta name="description" content="Selamat datang di website pribadi saya!">
-        <meta name="keywords" content="Aditya, Adit, MadByAd, Website Pribadi">
-        <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <meta name="keywords" content="Aditya Wahyu Santoso, Aditya Wahyu Dev, Aditya Ws, Aditya, Adit">
+    <meta name="description" content="Halo! saya Aditya Wahyu Santoso dan selamat datang di website pribadi saya! Saya juga punya nama developer yaitu MadByAd">
+    <title>Aditya Wahyu Santoso</title>
 
-    </head>
-    <body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/layout.css">
 
-        <script type="importmap">
-            {
-                "imports": {
-                    "three": "./js/three.webgpu.js",
-                    "three/webgpu": "./js/three.webgpu.js",
-                    "three/tsl": "./js/three.tsl.js",
-                    "three/addons/": "./jsm/"
-               }
-            }
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-        <script type="module">
+</head>
+<body>
 
-            import * as THREE from "three";
-            import {step, normalWorld, output, texture, vec3, vec4, normalize, positionWorld, bumpMap, cameraPosition, color, uniform, mix, uv, max} from "three/tsl";
-            import {OrbitControls} from "three/addons/controls/OrbitControls.js";
-            import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
-            import {GUI} from "three/addons/libs/lil-gui.module.min.js";
+    <!-- NAVBAR -->
 
-            let camera, scene, renderer, controls, sphereSkybox, head, clock;
-
-            init();
-
-            function init() {
-
-                clock = new THREE.Clock();
-
-                camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 100);
-
-                if (screen.width > 1080) {
-                    camera.position.set(0, 0.5, 3.5);
-                }
-                else if (screen.width > 768) {
-                    camera.position.set(0, 0.5, 4);
-                } else {
-                    camera.position.set(0, 0.5, 4.5);
-                }
-
-                scene = new THREE.Scene();
-
-                // sun
-
-                const sun = new THREE.DirectionalLight("#ffffff", 2);
-                sun.position.set(0, 0, 3);
-                sun.castShadow = true;
-                sun.shadow.mapSize.width = 512;
-                sun.shadow.mapSize.height = 512;
-                sun.shadow.camera.near = 0.5;
-                sun.shadow.camera.far = 500;
-                scene.add(sun);
-
-
-                // head
-
-                const loader = new GLTFLoader().setPath("./model/");
-
-                loader.load("./head.glb", function (gltf) {
-                    scene.add(gltf.scene);
-                    head = gltf.scene;
-                }, undefined, function (error) {
-                    console.error(error);
-                });
-
-                let light = new THREE.AmbientLight(0xffffff);
-                scene.add(light);
-
-
-                // skybox
-
-                const sphereSkyboxGeometry = new THREE.SphereGeometry(50, 32, 16);
-                const sphereSkyboxMaterial = new THREE.MeshStandardNodeMaterial({color: 0xffffff, side: THREE.BackSide, roughness: 1.0, wireframe: true});
-
-                sphereSkybox = new THREE.Mesh(sphereSkyboxGeometry, sphereSkyboxMaterial);
-                scene.add(sphereSkybox)
-
-
-                // renderer
-
-                renderer = new THREE.WebGPURenderer({ alpha: true });
-                renderer.setPixelRatio(window.devicePixelRatio);
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setAnimationLoop(animate);
-                renderer.setClearColor( 0x000000, 0 );
-                document.body.appendChild(renderer.domElement);
-
-
-                // controls
-
-                controls = new OrbitControls(camera, renderer.domElement);
-                controls.enableDamping = true;
-                controls.minDistance = 1;
-                controls.maxDistance = 8;
-
-                window.addEventListener("resize", onWindowResize);
-
-            }
-
-            function onWindowResize() {
-
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-
-                renderer.setSize(window.innerWidth, window.innerHeight);
-
-            }
-
-            async function animate() {
-
-                controls.update();
-
-                renderer.render(scene, camera);
-
-            }
-
-        </script>
-
-        <div class="cover"></div>
-
-        <div class="title">
-            <h1>
-                <span>Halo Salam Kenal</span>
-                <span>Saya
-                    <span class="title--name">
-                        <span style="animation-delay: 0s;">A</span>
-                        <span style="animation-delay: 0.1s;">d</span>
-                        <span style="animation-delay: 0.2s;">i</span>
-                        <span style="animation-delay: 0.3s;">t</span>
-                        <span style="animation-delay: 0.4s;">y</span>
-                        <span style="animation-delay: 0.5s;">a</span>
-                        <span style="animation-delay: 0.6s;">!</span>
-                    </span>
-                </span>
-            </h1>
+    <nav class="navbar navbar-expand-lg" data-aos="fade-down" data-aos-duration="3000">
+        <div class="navbar-brand-container">
+            <a class="navbar-brand bebas-neue-regular" href="#MAIN">ADITYA WAHYU <br> SANTOSO</a>
+            <div class="navbar--strip"></div>
         </div>
-
-        <div class="button" id="toggle-creation">
-            <button id="see-creation">
-                <span>MAU <span class="button--spaces">__</span> LIHAT</span>
-                <span>KREASI SAYA?</span>
-                <span class="button--click">KLIK DISINI!</span>
-            </button>
-            <button id="close-creation" class="button--close">
-                <span>BERHENTI</span>
-                <span>MELIHAT?</span>
-            </button>
+        <div class="navbar--links bebas-neue-regular">
+            <a class="navbar-link-desktop" href="#ABOUT">ABOUT</a>       <span class="navbar-link-desktop">|</span>
+            <a class="navbar-link-desktop" href="#SKILLS">SKILLS</a>     <span class="navbar-link-desktop">|</span>
+            <a class="navbar-link-desktop" href="#PROJECTS">PROJECTS</a> <span class="navbar-link-desktop">|</span>
+            <a class="navbar-link-desktop" href="#CONTACT">CONTACT</a>   <span class="navbar-link-desktop">|</span>
+            <a onclick="openSidebar();">MORE</a>
         </div>
+    </nav>
 
-        <div class="creations" id="creations">
-            <div class="creations--title">
-                <h2>KREASI SAYA</h2>
-            </div>
-            <div class="creations--list" id="creations--list"></div>
+    <div class="sidebar-overlay sidebar-overlay-hidden"></div>
+
+    <aside class="sidebar sidebar-hidden">
+        <div class="sidebar-close">
+            <button onclick="closeSidebar();"><i class="bi bi-x-lg"></i></button>
         </div>
-
-        <div class="contact">
-            <button id="contact--open">Mau Berbicara?</button>
+        <div class="sidebar-page-link sidebar-current-link">
+            <a href="">HOME PAGE</a>
         </div>
+        <div class="sidebar-sub-link">
+            <a href="#ABOUT">_ABOUT ME</a>
+            <a href="#SKILLS">_MY SKILLS</a>
+            <a href="#PROJECTS">_MY PROJECTS</a>
+            <a href="#CONTACT">_CONTACT ME</a>
+        </div>
+        <div class="sidebar-page-link">
+            <a href="./under_construction.html">PROJECTS</a>
+        </div>
+        <div class="sidebar-page-link">
+            <a href="./under_construction.html">SEE ME FROM ANOTHER VIEW?</a>
+        </div>
+    </aside>
 
-        <div class="contactlist" id="contactlist">
-            <div class="contactlist--title">
-                <h2>MAU BERBICARA?</h2>
-                <button id="contact--close"><img src="./icon/x-lg.svg" alt=""></button>
-            </div>
-            <div class="contactlist--list">
-                <p>LEWAT MANA NIH?</p>
-                <div class="contactlist--item">
-                    <img src="./icon/instagram.svg" width="20px">
-                    <a href="https://instagram.com/aditya_wahyu_dev" target="_blank">@aditya_wahyu_dev</a>
-                    <span>(DM)</span>
-                </div>
-                <div class="contactlist--item">
-                    <img src="./icon/envelope-at.svg" width="20px">
-                    <a href="mailto:adityaaw84@gmail.com">adityaaw84@gmail.com</a>
-                    <span>(EMAIL)</span>
-                </div>
-                <p>SOSIAL MEDIA LAIN</p>
-                <div class="contactlist--item">
-                    <img src="./icon/threads.svg" width="20px">
-                    <a target="_blank" href="https://www.threads.net/@aditya_wahyu_dev">@aditya_wahyu_dev</a>
-                    <span>(THREADS)</span>
-                </div>
-                <div class="contactlist--item">
-                    <img src="./icon/github.svg" width="20px">
-                    <a target="_blank" href="https://github.com/AdityaWs">AdityaWs</a>
-                    <span>(GITHUB pribadi)</span>
-                </div>
-                <div class="contactlist--item">
-                    <img src="./icon/github.svg" width="20px">
-                    <a target="_blank" href="https://github.com/MadByAd">MadByAd</a>
-                    <span>(GITHUB utama)</span>
-                </div>
-                <div class="contactlist--item">
-                    <img src="./icon/youtube.svg" width="20px">
-                    <a target="_blank" href="https://youtube.com/@MadByAd">@MadByAd</a>
-                    <span>(YOUTUBE)</span>
-                </div>
-                <div class="contactlist--item">
-                    <img src="./icon/controller.svg" width="20px">
-                    <a target="_blank" href="https://madbyad.itch.io">MadByAd</a>
-                    <span>(Itch.IO)</span>
-                </div>
-                <div class="contactlist--item">
-                    <img src="./icon/google-play.svg" width="20px">
-                    <a target="_blank" href="https://play.google.com/store/apps/dev?id=7894522532614647574">MadByAd</a>
-                    <span>(PLAYSTORE)</span>
-                </div>
-                <div class="contactlist--item">
-                    <img src="./icon/newspaper.svg" width="20px">
-                    <a target="_blank" href="https://madbyad.blogspot.com">MadByAd_Dev_Blog</a>
-                    <span>(Blogger)</span>
+    <!-- SIDEBAR SCRIPT -->
+    <script>
+        function closeSidebar() {
+            document.querySelector(".sidebar").classList.add("sidebar-hidden");
+            document.querySelector(".sidebar-overlay").classList.add("sidebar-overlay-hidden");
+        }
+        function openSidebar() {
+            document.querySelector(".sidebar").classList.remove("sidebar-hidden");
+            document.querySelector(".sidebar-overlay").classList.remove("sidebar-overlay-hidden");
+        }
+    </script>
+
+    <!-- NAVBAR -->
+
+    <!-- -------------------------------------------------------------------------------- -->
+
+    <!-- MAIN CONTENT -->
+
+    <div id="MAIN"></div>
+    <div class="header">
+        <div class="header--background"></div>
+        <img
+            src="./images/adit_suit_high_angle.png"
+            alt="An image of Adit in a suit standing and taken from a high angle view"
+            class="header--image"
+            data-aos="fade-up"
+            data-aos-duration="3000">
+        <div class="header--links">
+            <a href="https://instagram.com/aditya_wahyu_dev"><i class="bi bi-instagram"></i></a>
+            <a href="https://youtube.com/@aditya-wahyu-dev" style="color: red;"><i class="bi bi-youtube"></i></a>
+            <a href="https://github.com/AdityaWs"><i class="bi bi-github"></i></a>
+            <a href="https://play.google.com/store/apps/dev?id=7894522532614647574"><img src="./icons/playstore.png" alt="playstore icon" width="30px"></a>
+            <a href="https://madbyad.itch.io/"><img src="./icons/itch.io.svg" alt="itch.io icon" width="32px"></a>
+            <a href="https://madbyad.blogspot.com/"><img src="./icons/blogger.png" alt="blogger icon" width="32px"></a>
+        </div>
+    </div>
+
+    <div class="header--content">
+        <h1 class="display-1 bebas-neue-regular" data-aos="fade-up" data-aos-duration="2000">ADITYA WAHYU SANTOSO</h1>
+        <p class="jetbrains-mono" data-aos="fade-up" data-aos-duration="2000">Programmer, Designer, Artist, & Network Computer Engineer</p>
+        <small class="jetbrains-mono" data-aos="fade-up" data-aos-duration="2000"><i>Scroll down for more...</i></small>
+    </div>
+
+    <div class="about--transition"></div>
+    <div id="ABOUT"></div>
+    <div class="about">
+        <div class="about--content"
+            data-aos="fade-up"
+            data-aos-duration="1500">
+            <h2 class="display-1 bebas-neue-regular">ABOUT ME</h2>
+            <p class="open-sans">
+                Halo perkenalkan! nama saya Aditya Wahyu Santoso
+                Kalian bisa manggil saya Adit, dan saya punya nama
+                developer yaitu MadByAd. Saya adalah siswa SMK
+                jurusan TJKT yang juga memiliki keahlian programming
+                Game, Website ataupun Aplikasi dan juga
+                mampu desain 2D / 3D
+            </p>
+        </div>
+        <div class="about--images"
+            data-aos="fade-up"
+            data-aos-duration="1500">
+            <img class="about--batik-ornament"
+                src="./images/ornament_batik_kubikka.png"
+                alt="an abstract Indonesian batik-like ornament">
+            <img class="about--adit-img"
+                src="./images/adit_suit_eye_level.png"
+                alt="Photo of me in a white suit from an eye level angle">
+        </div>
+    </div>
+
+    <div class="control" id="about-observe"></div>
+    <div id="SKILLS"></div>
+    <div class="myskills">
+        <div class="myskills--content">
+            <h2 class="bebas-neue-regular"
+                data-aos="fade-up"
+                data-aos-duration="1500">MY SKILLS</h2>
+            <p class="jetbrains-mono"><i>keep scrolling please...</i></p>
+        </div>
+    </div>
+
+    <div class="control" id="myskills-observe"></div>
+
+    <!-- BAGIAN SKILL PROGRAMMING -->
+
+    <div class="skills" style="background: #222222; color: white;">
+        <div class="skills--content">
+            <div data-aos="fade-right"
+                data-aos-duration="1500">
+                <div class="skills--content-reverse">
+                    <h3 class="bebas-neue-regular" style="margin-bottom: 64px;">PROGRAMMER</h3>
+                    <p class="open-sans">
+                        Saya mempunyai keahlian programming untuk Web / Aplikasi (HTML, CSS, Javascript) dan Video Game
+                        (Godot) yang saya pelajari secara otodidak di sekolah dan di rumah
+                    </p>
                 </div>
             </div>
         </div>
-
-        <div class="about" id="about--open">
-            <button>Tentang Saya</button>
+        <div class="skills--image-full">
+            <div style="
+                background: #222222;
+                background: linear-gradient(180deg, rgb(18, 18, 18) 0%, rgba(34, 34, 34, 0) 100%);"></div>
+            <img src="./images/foto_ngoding.jpg" alt="A photo of a computer screen filled with codes">
         </div>
+    </div>
 
-        <div class="aboutpanel" id="aboutpanel">
-            <div class="aboutpanel--content">
-                <p>
-                    <span class="aboutpanel--content--big">Halo!</span> <br>
-                    perkenalkan nama saya adalah Aditya Wahyu Santoso sering dipanggil Adit. Nama developer saya adalah MadByAd yang merupakan singkatan dari Made By Aditya.
-                    Bisa dikatakan saya adalah seorang programmer yang berpengalaman, saya memiliki 3.5 tahun pengalaman dalam dunia pemrograman mempunya skill di bidang
-                    Software, Web, dan Game Development. Saya lahir di Indonesia tahun 2009 dan sekarang menduduki bangku SMK
+    <div class="control" id="skill-programming"></div>
+
+    <!-- BAGIAN SKILL DESAIN -->
+
+    <div class="skills">
+        <div class="skills--image">
+            <img src="./images/render_poster_3.png">
+        </div>
+        <div class="skills--content"
+            data-aos="fade-left"
+            data-aos-duration="1500">
+            <div class="skills--content-reverse">
+                <h3 class="bebas-neue-regular" style="
+                    border-color: black;
+                    margin-bottom: 64px;
+                    font-size: 12vw;">DESIGNER</h3>
+                <p class="open-sans">
+                    Selain programming, saya juga memiliki keahlian dalam design atau menggunakan alat design seperti
+                    Canva untuk 2D dan Blender untuk 3D, keahlian ini saya pelajari di sekolah dan juga di rumah secara
+                    otodidak
                 </p>
             </div>
-            <div class="aboutpanel--title">
-                <h2>TENTANG SAYA</h2>
-                <button id="about--close"><img src="./icon/x-lg.svg" alt=""></button>
+        </div>
+    </div>
+
+    <div class="control" id="skill-designer"></div>
+
+    <!-- BAGIAN SKILL ARTIST -->
+
+    <div class="skills" style="background: #e6e6f6;">
+        <div class="skills--content"
+            style="place-content: start start;"
+            data-aos="fade-right"
+            data-aos-duration="1500">
+            <h3 class="bebas-neue-regular" style="
+                margin-top: 128px;
+                border: none;
+                border-bottom: 1px solid black;
+                font-size: 14vw;">ARTIST</h3>
+            <p class="open-sans" style="max-width: 450px;">
+                Selain desain saya juga mempunyai keahlian dan menggunakan aplikasi seni seperti Krita untuk gambar 2D
+                atau blender untuk 3D
+            </p>
+        </div>
+        <div class="skills--image">
+            <img src="./images/foto_seni_1.png">
+        </div>
+    </div>
+
+    <div class="control" id="skill-artist"></div>
+
+    <!-- BAGIAN SKILL TKJ -->
+
+    <div class="skills" style="background: #004aad; color: white;">
+        <div class="skills--image-full">
+            <div style="
+                background: #222222;
+                background: linear-gradient(180deg, rgb(0, 1, 104) 0%, rgba(34, 34, 34, 0) 100%);"></div>
+            <img src="./images/foto_lab_komputer.jpg" alt="A photo of a computer screen filled with codes" style="object-position: center 75%;">
+        </div>
+        <div class="skills--content" style="place-content: start end;">
+            <div data-aos="fade-left"
+                data-aos-duration="1500">
+                <h3 class="bebas-neue-regular" style="
+                    margin-top: 128px;
+                    border: none;
+                    border-bottom: 1px solid white;
+                    font-size: 6vw;">NETWORK COMPUTER ENGINEER</h3>
+                <p class="open-sans">
+                    Dan terakhir saya memiliki keahlian di bidang TJKT terutama di bagian konfigurasi jaringan seperti
+                    access point, router, komputer, dan mampu merancang topologi jaringan serta troubleshooting masalah
+                    jaringan
+                </p>
             </div>
         </div>
+    </div>
 
-        <script>
+    <div class="control" id="skill-network"></div>
 
-            let creationOpen = false;
+    <!-- BAGIAN PROJECTS -->
 
-            document.getElementById("toggle-creation").addEventListener("click", function(){
-                if(!creationOpen) {
+    <div id="PROJECTS"></div>
+    <div class="projects">
+        <div class="projects--content"
+            data-aos="fade-up"
+            data-aos-duration="1500">
+            <h2 class="bebas-neue-regular">MY PROJECTS</h2>
+            <p class="open-sans">Keep scrolling down please</p>
+        </div>
+    </div>
 
-                    let button = document.getElementById("toggle-creation");
-                    button.style.bottom = "100%";
-                    button.style.right = "100%";
-                    button.style.scale = "50%";
-                    button.style.transform = "translate(100%, 100%)";
+    <div class="control" id="projects"></div>
 
-                    let buttonSee = document.getElementById("see-creation");
-                    buttonSee.style.opacity = "0";
+    <div class="project-list">
+        <div class="project-list--list">
+            <div class="project-item">
+                <img src="https://img.itch.zone/aW1nLzE4Nzg4Mzg0LmpwZw==/315x250%23c/IxPofs.jpg">
+                <div class="project-item--content">
+                    <h3 class="display-5 bebas-neue-regular">
+                        <a href="./images/projects/pumpkin_nights.jpg" target="_blank">PUMPKIN NIGHTS</a>
+                    </h3>
+                    <p>Pumpkin Nights adalah game horror multiplayer LAN singkat yang diciptakan menggunakan Godot Game Engine</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://img.itch.zone/aW1nLzE5NzI4NzU2LmpwZw==/315x250%23c/81O2HE.jpg">
+                <div class="project-item--content">
+                    <h3 class="display-5 bebas-neue-regular">
+                        <a href="./images/projects/map_of_the_solar_system.jpg" target="_blank">MAP OF SOLAR SYSTEM</a>
+                    </h3>
+                    <p>
+                        Map of the Solar System adalah sebuah webapp yang diciptakan menggunakan Three.JS untuk mempermudah
+                        visualisasi tata surya
+                    </p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="./images/projects/gedhe_endhase.png">
+                <div class="project-item--content">
+                    <h3 class="display-5 bebas-neue-regular">
+                        <a href="https://adityaws.github.io/GedheEndhase" target="_blank">GEDHE ENDHASE _WEBDESIGN CONCEPT</a>
+                    </h3>
+                    <p>
+                        Gedhe Endhase adalah sebuah website untuk konsep desain brand luxury clothing dengan produk utama
+                        jaket kulit kopi premium
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="project-list--redirect">
+            <a class="bebas-neue-regular h2" href="./under_construction.html">SEE ALL OF MY PROJECTS →</a>
+        </div>
+    </div>
 
-                    let creations = document.getElementById("creations");
-                    creations.style.top = "0%";
+    <div class="control project-list-control" id="project-list"></div>
 
-                } else {
+    <!-- BAGIAN CONTACT -->
 
-                    let button = document.getElementById("toggle-creation");
-                    button.style.bottom = "0%";
-                    button.style.right = "0%";
-                    button.style.scale = "100%";
-                    button.style.transform = "translate(0%, 0%)";
+    <div id="CONTACT"></div>
+    <div class="footer">
+        <div class="contact">
+            <div class="contact--info">
+                <h2 class="bebas-neue-regular">CONTACT ME</h2>
+                <ul class="contact--list">
+                    <li><i class="bi bi-telephone-fill"></i> <span>+62 0812-8519-0918</span></li>
+                    <li><i class="bi bi-envelope-fill"></i> <span>adityawahyu0116@gmail.com</span></li>
+                    <li><i class="bi bi-pin-fill"></i> <span>Kota Depok, Jawa Barat</span></li>
+                </ul>
+                <a href="./under_construction.html" class="bebas-neue-regular h2" style="margin-top: 2rem;">WANNA SEE ME FROM ANOTHER PERSPECTIVE? →</a>
+            </div>
+            <div class="contact--form">
+                <form action="#">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="someone@example.com">
+                    <label for="pesan">Pesan yang ingin disampaikan</label>
+                    <textarea name="pesan" id="pesan" placeholder="Masukan pesan yang ingin disampaikan"></textarea>
+                    <button type="submit" class="bebas-neue-regular h2">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div>
+                <a href="https://instagram.com/aditya_wahyu_dev" target="_blank"><i class="bi bi-instagram" style="color: #8134AF ;"></i> Instagram</a>
+                <a href="https://youtube.com/@aditya-wahyu-dev" target="_blank"><i class="bi bi-youtube" style="color: red;"></i> YouTube</a>
+                <a href="https://github.com/AdityaWs" target="_blank"><i class="bi bi-github"></i> Github</a>
+            </div>
+            <div>
+                <a href="https://madbyad.itch.io/" target="_blank"><img src="./icons/itch.io.svg" alt="itch.io icon" width="36px"> Itch.io</a>
+                <a href="https://play.google.com/store/apps/dev?id=7894522532614647574" target="_blank"><img src="./icons/playstore.png" alt="playstore icon" width="36px"> Play Store</a>
+                <a href="https://madbyad.blogspot.com/" target="_blank"><img src="./icons/blogger.png" alt="blogger icon" width="36px"> Read My Blog</a>
+            </div>
+            <div>
+                <a href="https://madbyad.github.io" target="_blank"><img src="./icons/madbyad.svg" alt="madbyad icon" width="36px"> Checkout MadByAd!</a>
+                <a href="https://youtube.com/@MadByAd" target="_blank"><i class="bi bi-youtube"></i> YouTube (MadByAd)</a>
+                <a href="https://instagram.com/madbyad" target="_blank"><i class="bi bi-instagram"></i> Instagram (MadByAd)</a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/aditya-santoso-908b41281/"><i class="bi bi-linkedin"></i> LinkedIn Profile</a>
+                <!-- <a href="#"><i class="bi bi-file-earmark-person-fill"></i> See my CV</a> -->
+                <!-- <a href="#"><i class="bi bi-person-vcard-fill"></i> See my Resume Site</a> -->
+            </div>
+        </div>
+        <div style="text-align: center; padding: 2rem;">
+            <p style="
+                max-width: 300px;
+                text-align: justify;
+                margin: 2rem auto;">
+                Halo saya Aditya Wahyu Santoso 👋 saya adalah seorang siswa SMK yang memiliki keahlian programming,
+                desain, seni dan jaringan komputer! Kalian bisa manggil saya Adit atau dengan nama developer saya
+                MadByAd 🎮
+            </p>
+            <small>&copy; 2026 Aditya Wahyu Santoso</small>
+        </div>
+    </div>
 
-                    let buttonSee = document.getElementById("see-creation");
-                    buttonSee.style.opacity = "1";
+    <!-- JAVASCRIPT FOR ANIMATION EFFECT -->
 
-                    let creations = document.getElementById("creations");
-                    creations.style.top = "100%";
+    <script>
+        AOS.init({
+            once: true
+        });
+    </script>
 
+    <script>
+        const invert_navbar_observer = new IntersectionObserver((entries) => {
+            let any_visible = false;
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    any_visible = true;
                 }
-                creationOpen = !creationOpen
             });
-
-            const xhttp = new XMLHttpRequest();
-            xhttp.onload = function() {
-                document.getElementById("creations--list").innerHTML = this.responseText;
+            if (any_visible) {
+                document.querySelector(".navbar").classList.add("navbar--invert");
             }
-            xhttp.open("GET", "./creations.html");
-            xhttp.send();
+        });
+        invert_navbar_observer.observe(document.querySelector('#myskills-observe'));
+        invert_navbar_observer.observe(document.querySelector('#skill-programming'));
+        invert_navbar_observer.observe(document.querySelector('#skill-network'));
 
-            function toggleLink(id) {
-                let post = document.getElementById(id);
-                let links = post.querySelector("#links");
-
-                if(links.offsetHeight <= 10) {
-                    links.style.height = links.querySelector("*").offsetHeight + "px";
-                } else {
-                    links.style.height = "0px";
+        const uninvert_navbar_observer = new IntersectionObserver((entries) => {
+            let any_visible = false;
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    any_visible = true;
                 }
+            });
+            if (any_visible) {
+                document.querySelector(".navbar").classList.remove("navbar--invert");
             }
+        });
+        uninvert_navbar_observer.observe(document.querySelector('#about-observe'));
+        uninvert_navbar_observer.observe(document.querySelector('#skill-designer'));
+        uninvert_navbar_observer.observe(document.querySelector('#skill-artist'));
+        uninvert_navbar_observer.observe(document.querySelector('#projects'));
+        uninvert_navbar_observer.observe(document.querySelector('#project-list'));
+    </script>
 
-            document.getElementById("contact--open").addEventListener("click", function(){
-                document.getElementById("contactlist").style.left = "0%";
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start' // Memastikan elemen muncul di paling atas
+                    });
+                }
             });
+        });
+    </script>
 
-            document.getElementById("contact--close").addEventListener("click", function(){
-                document.getElementById("contactlist").style.left = "100%";
-            });
-
-            document.getElementById("about--open").addEventListener("click", function(){
-                document.getElementById("aboutpanel").style.right = "0%";
-            });
-
-            document.getElementById("about--close").addEventListener("click", function(){
-                document.getElementById("aboutpanel").style.right = "100%";
-            });
-
-        </script>
-
-    </body>
+</body>
 </html>
