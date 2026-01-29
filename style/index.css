@@ -224,6 +224,15 @@ html {
     width: 512px;
 }
 
+.art-image, .poster-image {
+    opacity: 1;
+    transition: all 1s;
+}
+
+.invisible {
+    opacity: 0;
+}
+
 /* PROJECTS STYLING */
 
 .projects, .project-list {
@@ -322,6 +331,9 @@ html {
         width: 100%;
         height: fit-content;
         max-width: 600px;
+    }
+    #projects {
+        display: none;
     }
 }
 
