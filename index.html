@@ -344,13 +344,26 @@
                 <a href="./under_construction.html" class="bebas-neue-regular h2" style="margin-top: 2rem;">WANNA SEE ME FROM ANOTHER PERSPECTIVE? →</a>
             </div>
             <div class="contact--form">
-                <form action="#">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="someone@example.com">
-                    <label for="pesan">Pesan yang ingin disampaikan</label>
-                    <textarea name="pesan" id="pesan" placeholder="Masukan pesan yang ingin disampaikan"></textarea>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {alert('Pesan berhasil terkirim!'); window.location.reload();}"></iframe>
+
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSedVB_6u7DHiAqRRCoHRU8pvOgcDY-GPjSCE0FdM3P3sC0VYA/formResponse"
+                    method="POST"
+                    target="hidden_iframe"
+                    id="contactForm"
+                    onsubmit="submitted=true;">
+
+                    <label for="entry.288195747">Email</label>
+                    <input type="email" name="entry.288195747" id="entry.288195747" placeholder="someone@example.com" required>
+
+                    <label for="entry.1475326475">Pesan yang ingin disampaikan</label>
+                    <textarea name="entry.1475326475" id="entry.1475326475" placeholder="Masukan pesan yang ingin disampaikan" required></textarea>
+
                     <button type="submit" class="bebas-neue-regular h2">SUBMIT</button>
                 </form>
+
+                <script type="text/javascript">
+                    var submitted = false;
+                </script>
             </div>
         </div>
         <div class="footer-links">
