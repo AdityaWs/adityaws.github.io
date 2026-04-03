@@ -3,505 +3,151 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
-    <meta name="keywords" content="Aditya Wahyu Santoso, Aditya Wahyu Dev, Aditya Ws, Aditya, Adit">
-    <meta name="description" content="Halo! saya Aditya Wahyu Santoso dan selamat datang di website pribadi saya! Saya juga punya nama developer yaitu MadByAd">
-    <meta name="google-site-verification" content="EjzhAJgRePMoEl7Ylu9xBCjjLcukyn7zj8WJ8z9_uvU"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Wahyu Santoso</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style/index.css">
-    <link rel="stylesheet" href="./style/layout.css">
-    <link rel="shortcut icon" href="https://madbyad.my.id/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./index.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/snarkdown@2.0.0/dist/snarkdown.umd.js"></script>
 
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <div class="background"></div>
 
-    <nav class="navbar navbar-expand-lg" data-aos="fade-down" data-aos-duration="3000">
-        <div class="navbar-brand-container">
-            <a class="navbar-brand bebas-neue-regular" href="./index.html">ADITYA WAHYU <br> SANTOSO</a>
-            <div class="navbar--strip"></div>
-        </div>
-        <div class="navbar--links bebas-neue-regular">
-            <a class="navbar-link-desktop" href="#ABOUT">ABOUT</a>       <span class="navbar-link-desktop">|</span>
-            <a class="navbar-link-desktop" href="#SKILLS">SKILLS</a>     <span class="navbar-link-desktop">|</span>
-            <a class="navbar-link-desktop" href="#PROJECTS">PROJECTS</a> <span class="navbar-link-desktop">|</span>
-            <a class="navbar-link-desktop" href="#CONTACT">CONTACT</a>   <span class="navbar-link-desktop">|</span>
-            <a onclick="openSidebar();">MORE</a>
-        </div>
-    </nav>
-
-    <div class="sidebar-overlay sidebar-overlay-hidden"></div>
-
-    <aside class="sidebar sidebar-hidden">
-        <div class="sidebar-close">
-            <button onclick="closeSidebar();"><i class="bi bi-x-lg"></i></button>
-        </div>
-        <div class="sidebar-page-link sidebar-current-link">
-            <a href="./index.html">HOME PAGE</a>
-        </div>
-        <div class="sidebar-sub-link">
-            <a href="#ABOUT">_ABOUT ME</a>
-            <a href="#SKILLS">_MY SKILLS</a>
-            <a href="#PROJECTS">_MY PROJECTS</a>
-            <a href="#CONTACT">_CONTACT ME</a>
-        </div>
-        <div class="sidebar-page-link">
-            <a href="./projects.html">PROJECTS</a>
-        </div>
-        <div class="sidebar-page-link">
-            <a href="./links.html">SEE ME FROM ANOTHER VIEW?</a>
-        </div>
-        <br>
-        <div class="sidebar-icon-links">
-            <a href="https://instagram.com/aditya_wahyu_dev" target="_blank"><i class="bi bi-instagram"></i></a>
-            <a href="https://youtube.com/@aditya-wahyu-dev" target="_blank"><i class="bi bi-youtube" style="color: red;"></i></a>
-            <a href="https://github.com/AdityaWs" target="_blank"><i class="bi bi-github"></i></a>
-            <a href="https://playstore.madbyad.my.id" target="_blank"><img src="./icons/playstore.png" alt="playstore icon" width="30px"></a>
-        </div>
-        <div class="sidebar-icon-links">
-            <a href="https://madbyad.itch.io/" target="_blank"><img src="./icons/itch.io.svg" alt="itch.io icon" width="32px"></a>
-            <a href="https://blog.madbyad.my.id/" target="_blank"><img src="./icons/blogger.png" alt="blogger icon" width="32px"></a>
-            <a href="https://madbyad.my.id" target="_blank"><img src="./icons/madbyad.svg" alt="madbyad icon" width="32px"></a>
-        </div>
-    </aside>
-
-    <!-- SIDEBAR SCRIPT -->
-    <script>
-        function closeSidebar() {
-            document.querySelector(".sidebar").classList.add("sidebar-hidden");
-            document.querySelector(".sidebar-overlay").classList.add("sidebar-overlay-hidden");
-        }
-        function openSidebar() {
-            document.querySelector(".sidebar").classList.remove("sidebar-hidden");
-            document.querySelector(".sidebar-overlay").classList.remove("sidebar-overlay-hidden");
-        }
-    </script>
-
-    <!-- NAVBAR -->
-
-    <!-- -------------------------------------------------------------------------------- -->
-
-    <!-- MAIN CONTENT -->
-
-    <div id="MAIN"></div>
-    <div class="header">
-        <div class="header--background"></div>
-        <img
-            src="./images/adit_suit_high_angle.png"
-            alt="An image of Adit in a suit standing and taken from a high angle view"
-            class="header--image"
-            data-aos="fade-up"
-            data-aos-duration="3000">
-        <div class="header--links">
-            <a href="https://instagram.com/aditya_wahyu_dev" target="_blank"><i class="bi bi-instagram"></i></a>
-            <a href="https://youtube.com/@aditya-wahyu-dev" target="_blank"><i class="bi bi-youtube" style="color: red;"></i></a>
-            <a href="https://github.com/AdityaWs" target="_blank"><i class="bi bi-github"></i></a>
-            <a href="https://playstore.madbyad.my.id" target="_blank"><img src="./icons/playstore.png" alt="playstore icon" width="30px"></a>
-            <a href="https://madbyad.itch.io/" target="_blank"><img src="./icons/itch.io.svg" alt="itch.io icon" width="32px"></a>
-            <a href="https://blog.madbyad.my.id/" target="_blank"><img src="./icons/blogger.png" alt="blogger icon" width="32px"></a>
-            <a href="https://madbyad.my.id" target="_blank"><img src="./icons/madbyad.svg" alt="madbyad icon" width="32px"></a>
-        </div>
-    </div>
-
-    <div class="header--content">
-        <h1 class="display-1 bebas-neue-regular" data-aos="fade-up" data-aos-duration="2000">ADITYA WAHYU SANTOSO</h1>
-        <p class="jetbrains-mono" data-aos="fade-up" data-aos-duration="2000">Programmer, Designer, Artist, & Network Computer Engineer</p>
-        <small class="jetbrains-mono" data-aos="fade-up" data-aos-duration="2000"><i>Scroll down for more...</i></small>
-    </div>
-
-    <div class="about--transition"></div>
-    <div id="ABOUT"></div>
-    <div class="about">
-        <div class="about--content"
-            data-aos="fade-up"
-            data-aos-duration="1500">
-            <h2 class="display-1 bebas-neue-regular">ABOUT ME</h2>
-            <p class="open-sans">
-                Halo perkenalkan! nama saya Aditya Wahyu Santoso
-                Kalian bisa manggil saya Adit, dan saya punya nama
-                developer yaitu MadByAd. Saya adalah siswa SMK
-                jurusan TJKT yang juga memiliki keahlian programming
-                Game, Website ataupun Aplikasi dan juga
-                mampu desain 2D / 3D
+    <div class="content">
+        <aside class="content-profile">
+            <div class="profile-image">
+                <img src="https://madbyad.my.id/image/Aditya.png" alt="profile picture">
+            </div>
+            <div class="profile-title">
+                <h1>Aditya Wahyu Santoso</h1> <span>/</span>
+                <p>@AdityaWahyuDev</p> <span>/ </span>
+                <p>MadByAd</p>
+            </div>
+            <p class="profile-bio">
+                Hello 👋 i am Aditya Wahyu Santoso / Dev, you can call me Adit or Madbyad! that's my developer name. I have an expertise on programming and creative arts
             </p>
-        </div>
-        <div class="about--images"
-            data-aos="fade-up"
-            data-aos-duration="1500">
-            <img class="about--batik-ornament"
-                src="./images/ornament_batik_kubikka.png"
-                alt="an abstract Indonesian batik-like ornament">
-            <img class="about--adit-img"
-                src="./images/adit_suit_eye_level.png"
-                alt="Photo of me in a white suit from an eye level angle">
-        </div>
+            <div class="profile-links">
+                <a target="_blank" href="https://github.com/adityaws"><i class="bi bi-github"></i> @AdityaWs</a>
+                <a target="_blank" href="https://instagram.com/aditya_wahyu_dev"><i class="bi bi-instagram"></i> @aditya_wahyu_dev</a>
+                <a target="_blank" href="https://youtube.com/@aditya-wahyu-dev"><i class="bi bi-youtube"></i> @aditya-wahyu-dev</a>
+                <a target="_blank" href="https://blog.madbyad.my.id"><i class="bi bi-blockquote-left"></i> dev blog</a>
+                <a target="_blank" href="https://madbyad.itch.io"><i class="bi bi-joystick"></i> madbyad (itch.io)</a>
+                <a target="_blank" href="https://playstore.madbyad.my.id"><i class="bi bi-google-play"></i> madbyad (playstore)</a>
+                <a target="_blank" href="https://madbyad.my.id"><i class="bi bi-globe2"></i> madbyad (website)</a>
+            </div>
+        </aside>
+        <main class="content-main">
+            <h2>ℹ️ About Me</h2>
+            <ul>
+                <li>Hello 👋 My name is <b>Adit</b>, and my full name is <b>Aditya Wahyu Santoso</b>! Im a student, a programmer, and a creative one</li>
+                <li>I am a student who excels at programming 🧑‍💻, i like to be creative person 🎨, and i have a passion for digital art in 2D and 3D 🖌️</li>
+                <li>My main skills are programming especially game development 🎮 which required creativity and other skills like drawing and designing 2D/3D and also web development 🌐</li>
+                <li>If you are interested about my games 😉 considering take a look at my <a href="https://madbyad.itch.io">itch.io</a> page or my <a href="https://playstore.madbyad.my.id">playstore</a> page</li>
+                <li><b>🪄 Fun Fact:</b> I also have a developer identity and that is <a href="madbyad.itch.io">MadByAd</a>, it is the name i used when publishing games</li>
+            </ul>
+            <br>
+            <h2>Projects & Creations</h2>
+            <div id="projects-container"></div>
+            <br>
+            <small>&copy; 2026 Aditya Wahyu Santoso / MadByAd</small>
+        </main>
     </div>
-
-    <div class="control" id="about-observe"></div>
-    <div id="SKILLS"></div>
-    <div class="myskills">
-        <div class="myskills--content">
-            <h2 class="bebas-neue-regular"
-                data-aos="fade-up"
-                data-aos-duration="1500">MY SKILLS</h2>
-            <p class="jetbrains-mono"><i>keep scrolling please...</i></p>
-        </div>
-    </div>
-
-    <div class="control" id="myskills-observe"></div>
-
-    <!-- BAGIAN SKILL PROGRAMMING -->
-
-    <div class="skills" style="background: #222222; color: white;">
-        <div class="skills--content">
-            <div data-aos="fade-right"
-                data-aos-duration="1500">
-                <div class="skills--content-reverse">
-                    <h3 class="bebas-neue-regular" style="margin-bottom: 64px;">PROGRAMMER</h3>
-                    <p class="open-sans">
-                        Saya mempunyai keahlian programming untuk Web / Aplikasi (HTML, CSS, Javascript) dan Video Game
-                        (Godot) yang saya pelajari secara otodidak di sekolah dan di rumah
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="skills--image-full">
-            <div style="
-                background: #222222;
-                background: linear-gradient(180deg, rgb(18, 18, 18) 0%, rgba(34, 34, 34, 0) 100%);"></div>
-            <img src="./images/foto_ngoding.jpg" alt="A photo of a computer screen filled with codes">
-        </div>
-    </div>
-
-    <div class="control" id="skill-programming"></div>
-
-    <!-- BAGIAN SKILL DESAIN -->
-
-    <div class="skills">
-        <div class="skills--image">
-            <img src="./images/render_poster_3.png" class="poster-image">
-            <img src="./images/render_poster_4.png" class="poster-image">
-            <img src="./images/render_poster_1.png" class="poster-image">
-            <img src="./images/render_poster_2.png" class="poster-image">
-        </div>
-        <div class="skills--content"
-            data-aos="fade-left"
-            data-aos-duration="1500">
-            <div class="skills--content-reverse">
-                <h3 class="bebas-neue-regular" style="
-                    border-color: black;
-                    margin-bottom: 64px;
-                    font-size: 12vw;">DESIGNER</h3>
-                <p class="open-sans">
-                    Selain programming, saya juga memiliki keahlian dalam design atau menggunakan alat design seperti
-                    Canva untuk 2D dan Blender untuk 3D, keahlian ini saya pelajari di sekolah dan juga di rumah secara
-                    otodidak
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="control" id="skill-designer"></div>
-
-    <!-- BAGIAN SKILL ARTIST -->
-
-    <div class="skills" style="background: #e6e6f6;">
-        <div class="skills--content"
-            style="place-content: start start;"
-            data-aos="fade-right"
-            data-aos-duration="1500">
-            <h3 class="bebas-neue-regular" style="
-                margin-top: 128px;
-                border: none;
-                border-bottom: 1px solid black;
-                font-size: 14vw;">ARTIST</h3>
-            <p class="open-sans" style="max-width: 450px;">
-                Selain desain saya juga mempunyai keahlian dan menggunakan aplikasi seni seperti Krita untuk gambar 2D
-                atau blender untuk 3D
-            </p>
-        </div>
-        <div class="skills--image">
-            <img src="./images/foto_seni_1.png" class="art-image">
-            <img src="./images/foto_seni_2.png" class="art-image">
-            <img src="./images/foto_seni_3.png" class="art-image">
-            <img src="./images/foto_seni_4.png" class="art-image">
-        </div>
-    </div>
-
-    <div class="control" id="skill-artist"></div>
-
-    <!-- BAGIAN SKILL TKJ -->
-
-    <div class="skills" style="background: #004aad; color: white;">
-        <div class="skills--image-full">
-            <div style="
-                background: #222222;
-                background: linear-gradient(180deg, rgb(0, 1, 104) 0%, rgba(34, 34, 34, 0) 100%);"></div>
-            <img src="./images/foto_lab_komputer.jpg" alt="A photo of a computer screen filled with codes" style="object-position: center 75%;">
-        </div>
-        <div class="skills--content" style="place-content: start end;">
-            <div data-aos="fade-left"
-                data-aos-duration="1500">
-                <h3 class="bebas-neue-regular" style="
-                    margin-top: 128px;
-                    border: none;
-                    border-bottom: 1px solid white;
-                    font-size: 6vw;">NETWORK COMPUTER ENGINEER</h3>
-                <p class="open-sans">
-                    Dan terakhir saya memiliki keahlian di bidang TJKT terutama di bagian konfigurasi jaringan seperti
-                    access point, router, komputer, dan mampu merancang topologi jaringan serta troubleshooting masalah
-                    jaringan
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="control" id="skill-network"></div>
-
-    <!-- BAGIAN PROJECTS -->
-
-    <div id="PROJECTS"></div>
-    <div class="projects">
-        <div class="projects--content"
-            data-aos="fade-up"
-            data-aos-duration="1500">
-            <h2 class="bebas-neue-regular">MY PROJECTS</h2>
-            <p class="open-sans">Keep scrolling down please</p>
-        </div>
-    </div>
-
-    <div class="control" id="projects"></div>
-
-    <div class="project-list">
-        <div class="project-list--list">
-            <div class="project-item">
-                <img src="https://img.itch.zone/aW1nLzE4Nzg4Mzg0LmpwZw==/315x250%23c/IxPofs.jpg">
-                <div class="project-item--content">
-                    <h3 class="display-5 bebas-neue-regular">
-                        <a href="https://madbyad.itch.io/pumpkin_nights" target="_blank">PUMPKIN NIGHTS</a>
-                    </h3>
-                    <p>Pumpkin Nights adalah game horror multiplayer LAN singkat yang diciptakan menggunakan Godot Game Engine</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="https://img.itch.zone/aW1nLzE5NzI4NzU2LmpwZw==/315x250%23c/81O2HE.jpg">
-                <div class="project-item--content">
-                    <h3 class="display-5 bebas-neue-regular">
-                        <a href="https://madbyad.itch.io/map_of_the_solar_system" target="_blank">MAP OF SOLAR SYSTEM</a>
-                    </h3>
-                    <p>
-                        Map of the Solar System adalah sebuah webapp yang diciptakan menggunakan Godot Game Engine untuk mempermudah
-                        visualisasi tata surya
-                    </p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="./images/projects/gedhe_endhase.png">
-                <div class="project-item--content">
-                    <h3 class="display-5 bebas-neue-regular">
-                        <a href="https://adit.madbyad.my.id/GedheEndhase" target="_blank">GEDHE ENDHASE _WEBDESIGN CONCEPT</a>
-                    </h3>
-                    <p>
-                        Gedhe Endhase adalah sebuah website untuk konsep desain brand luxury clothing dengan produk utama
-                        jaket kulit kopi premium
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="project-list--redirect">
-            <a class="bebas-neue-regular h2" href="./projects.html">SEE ALL OF MY PROJECTS →</a>
-        </div>
-    </div>
-
-    <div class="control project-list-control" id="project-list"></div>
-
-    <!-- BAGIAN CONTACT -->
-
-    <div id="CONTACT"></div>
-    <footer class="footer">
-        <div class="contact">
-            <div class="contact--info">
-                <h2 class="bebas-neue-regular">CONTACT ME</h2>
-                <ul class="contact--list">
-                    <li><i class="bi bi-telephone-fill"></i> <span>+62 0812-8519-0918</span></li>
-                    <li><i class="bi bi-envelope-fill"></i> <span>adityawahyu0116@gmail.com</span></li>
-                    <li><i class="bi bi-pin-fill"></i> <span>Kota Depok, Jawa Barat</span></li>
-                </ul>
-                <a href="./under_construction.html" class="bebas-neue-regular h2" style="margin-top: 2rem;">WANNA SEE ME FROM ANOTHER PERSPECTIVE? →</a>
-            </div>
-            <div class="contact--form">
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {alert('Pesan berhasil terkirim!'); window.location.reload();}"></iframe>
-
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLSedVB_6u7DHiAqRRCoHRU8pvOgcDY-GPjSCE0FdM3P3sC0VYA/formResponse"
-                    method="POST"
-                    target="hidden_iframe"
-                    id="contactForm"
-                    onsubmit="submitted=true;">
-
-                    <label for="entry.288195747">Email</label>
-                    <input type="email" name="entry.288195747" id="entry.288195747" placeholder="someone@example.com" required>
-
-                    <label for="entry.1475326475">Pesan yang ingin disampaikan</label>
-                    <textarea name="entry.1475326475" id="entry.1475326475" placeholder="Masukan pesan yang ingin disampaikan" required></textarea>
-
-                    <button type="submit" class="bebas-neue-regular h2">SUBMIT</button>
-                </form>
-
-                <script type="text/javascript">
-                    var submitted = false;
-                </script>
-            </div>
-        </div>
-        <div class="footer-links">
-            <div>
-                <a href="./index.html"><i class="bi bi-house"></i> Home Page</a>
-                <a href="./projects.html"><i class="bi bi-code-slash"></i> View my Projects</a>
-                <a href="./links.html"><i class="bi bi-link-45deg"></i> See Me from other view?</a>
-            </div>
-            <div>
-                <a href="https://instagram.com/aditya_wahyu_dev" target="_blank"><i class="bi bi-instagram" style="color: #8134AF ;"></i> Instagram</a>
-                <a href="https://youtube.com/@aditya-wahyu-dev" target="_blank"><i class="bi bi-youtube" style="color: red;"></i> YouTube</a>
-                <a href="https://github.com/AdityaWs" target="_blank"><i class="bi bi-github"></i> Github</a>
-            </div>
-            <div>
-                <a href="https://madbyad.itch.io/" target="_blank"><img src="./icons/itch.io.svg" alt="itch.io icon" width="36px"> Itch.io</a>
-                <a href="https://playstore.madbyad.my.id" target="_blank"><img src="./icons/playstore.png" alt="playstore icon" width="36px"> Play Store</a>
-                <a href="https://blog.madbyad.my.id/" target="_blank"><img src="./icons/blogger.png" alt="blogger icon" width="36px"> Read My Blog</a>
-            </div>
-            <div>
-                <a href="https://madbyad.my.id" target="_blank"><img src="./icons/madbyad.svg" alt="madbyad icon" width="36px"> Checkout MadByAd!</a>
-                <a href="https://youtube.com/@MadByAd" target="_blank"><i class="bi bi-youtube"></i> YouTube (MadByAd)</a>
-                <a href="https://instagram.com/madbyad" target="_blank"><i class="bi bi-instagram"></i> Instagram (MadByAd)</a>
-            </div>
-            <div>
-                <a href="https://www.linkedin.com/in/aditya-santoso-908b41281/"><i class="bi bi-linkedin"></i> LinkedIn Profile</a>
-            </div>
-        </div>
-        <div style="text-align: center; padding: 2rem;">
-            <p style="
-                max-width: 300px;
-                text-align: justify;
-                margin: 2rem auto;">
-                Halo saya Aditya Wahyu Santoso 👋 saya adalah seorang siswa SMK yang memiliki keahlian programming,
-                desain, seni dan jaringan komputer! Kalian bisa manggil saya Adit atau dengan nama developer saya
-                MadByAd 🎮
-            </p>
-            <small>&copy; 2026 Aditya Wahyu Santoso</small>
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT FOR ANIMATION EFFECT -->
 
     <script>
-        AOS.init({
-            once: true
-        });
-    </script>
-
-    <script>
-        const invert_navbar_observer = new IntersectionObserver((entries) => {
-            let any_visible = false;
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    any_visible = true;
-                }
-            });
-            if (any_visible) {
-                document.querySelector(".navbar").classList.add("navbar--invert");
-            }
-        });
-        invert_navbar_observer.observe(document.querySelector('#myskills-observe'));
-        invert_navbar_observer.observe(document.querySelector('#skill-programming'));
-        invert_navbar_observer.observe(document.querySelector('#skill-network'));
-
-        const uninvert_navbar_observer = new IntersectionObserver((entries) => {
-            let any_visible = false;
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    any_visible = true;
-                }
-            });
-            if (any_visible) {
-                document.querySelector(".navbar").classList.remove("navbar--invert");
-            }
-        });
-        uninvert_navbar_observer.observe(document.querySelector('#about-observe'));
-        uninvert_navbar_observer.observe(document.querySelector('#skill-designer'));
-        uninvert_navbar_observer.observe(document.querySelector('#skill-artist'));
-        uninvert_navbar_observer.observe(document.querySelector('#projects'));
-        uninvert_navbar_observer.observe(document.querySelector('#project-list'));
-    </script>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start' // Memastikan elemen muncul di paling atas
-                    });
-                }
-            });
-        });
-    </script>
-
-    <script>
-        let art_to_display = 0;
-        function displayArt() {
-            let arts = document.querySelectorAll(".art-image");
-            for (let i = 0; i < arts.length; i++) {
-                if (i != art_to_display) {
-                    arts[i].classList.add("invisible");
-                } else {
-                    arts[i].classList.remove("invisible");
-                }
-            }
-            art_to_display += 1;
-            if (art_to_display >= 4) {
-                art_to_display = 0;
+        async function getItchData(itchUrl, card) {
+            try {
+                const jsonUrl = itchUrl.endsWith('/') ? `${itchUrl}data.json` : `${itchUrl}/data.json`;
+                const response = await fetch(jsonUrl);
+                const data = await response.json();
+                card.innerHTML = `<img src="${data.cover_image}">` + card.innerHTML;
+            } catch (e) {
+                console.error("Itch API error:", e);
+                return null;
             }
         }
-        displayArt();
-        setInterval(displayArt, 4000);
-    </script>
 
-    <script>
-        let poster_to_display = 0;
-        function displayPoster() {
-            let posters = document.querySelectorAll(".poster-image");
-            for (let i = 0; i < posters.length; i++) {
-                if (i != poster_to_display) {
-                    posters[i].classList.add("invisible");
-                } else {
-                    posters[i].classList.remove("invisible");
+        async function getReadmeSnippet(repoLink, card) {
+            try {
+                const rawUrl = repoLink.replace('github.com', 'raw.githubusercontent.com') + '/main/README.md';
+                const response = await fetch(rawUrl);
+                if (!response.ok) return null;
+
+                const text = await response.text();
+                const lines = text.split('\n');
+
+                for (let line of lines) {
+                    let cleanLine = line.trim();
+
+                    if (cleanLine == "") continue;
+                    if (cleanLine.startsWith('#')) continue;
+                    if (cleanLine.startsWith('!')) continue;
+                    if (cleanLine.startsWith('<')) continue;
+                    if (cleanLine.startsWith('[')) continue;
+
+                    card.querySelector(".project-description").innerHTML = snarkdown(cleanLine);
+                    return
                 }
-            }
-            poster_to_display += 1;
-            if (poster_to_display >= 4) {
-                poster_to_display = 0;
+                return null;
+            } catch (e) {
+                return null;
             }
         }
-        displayPoster();
-        setInterval(displayPoster, 4000);
+
+        async function loadProjects() {
+            const username = 'adityaws';
+            const url = `https://raw.githubusercontent.com/adityaws/${username}/main/README.md`;
+            const container = document.getElementById('projects-container');
+
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const lines = text.split('\n');
+                const projectRows = lines.filter(line => line.trim().startsWith('|')).slice(2);
+
+                projectRows.forEach(row => {
+                    const cols = row.split('|').map(c => c.trim()).filter(c => c !== "");
+
+                    if (cols.length >= 3) {
+                        const title = cols[0];
+                        const type = cols[1].replace(/\*/g, '');
+                        const extractLink = (str) => {
+                            const match = str.match(/\((https?:\/\/[^\)]+)\)/);
+                            return match ? match[1] : null;
+                        };
+
+                        const projectLink = extractLink(cols[2]);
+                        const repoLink = cols[3] ? extractLink(cols[3]) : null;
+                        const card = document.createElement('div');
+                        card.className = 'project-card';
+                        card.innerHTML = `
+                            <p class="project-title">${title}</p>
+                            <p class="project-type">${type}</p>
+                            <small class="project-description"></small>
+                            <a href="${projectLink}" class="project-link" target="_blank">See Project 👁️</a>
+                            ${repoLink ? `<a href="${repoLink}" class="project-link" target="_blank">See Repository 📂</a>` : ''}
+                        `;
+                        container.appendChild(card);
+
+                        if (projectLink.startsWith("https://madbyad.itch.io/")) {
+                            getItchData(projectLink, card);
+                        }
+                        if (repoLink != null && repoLink.startsWith("https://github.com/")) {
+                            getReadmeSnippet(repoLink, card);
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error("Failed to fetch README:", error);
+            }
+        }
+
+        loadProjects();
     </script>
 
 </body>
