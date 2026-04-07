@@ -1,0 +1,40 @@
+
+.content-about {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    padding-top: 64px;
+    padding: 24px;
+}
+
+.me-image {
+    max-width: 300px;
+}
+
+.me-image img {
+    width: 100%;
+}
+
+.about {
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    margin-bottom: 32px;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+@media (max-width: 1080px) {
+    .content-about {
+        flex-direction: column;
+        align-items: center;
+    }
+    .me-image {
+        max-width: 200px;
+    }
+}

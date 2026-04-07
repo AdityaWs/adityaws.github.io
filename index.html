@@ -1,14 +1,15 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+    <meta name="description" content="Hello 👋 i am Aditya Wahyu Santoso, a student, a developer, and an artist">
+    <meta name="keywords" content="Personal Website, Student, Programmer, Developer, Game Developer, Artist, Aditya, Adit">
     <title>Aditya Wahyu Santoso</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./index.css">
 
@@ -19,6 +20,12 @@
 
     <div class="background"></div>
 
+    <div class="links">
+        <a href="./index.html" class="link-home"></a>
+        <a href="https://madbyad.itch.io" target="_blank" class="link-games"></a>
+        <a href="./about.html" class="link-about"></a>
+    </div>
+
     <div class="content">
         <aside class="content-profile">
             <div class="profile-image">
@@ -26,7 +33,12 @@
             </div>
             <div class="profile-title">
                 <h1>Aditya Wahyu Santoso</h1> <span>/</span>
-                <p>@AdityaWahyuDev</p> <span>/ </span>
+                <p style="
+                    background: linear-gradient(90deg, #20205c, #440b3a);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    color: transparent;">@AdityaWahyuDev</p> <span>/ </span>
                 <p>MadByAd</p>
             </div>
             <p class="profile-bio">
@@ -34,8 +46,8 @@
             </p>
             <div class="profile-links">
                 <a target="_blank" href="https://github.com/adityaws"><i class="bi bi-github"></i> @AdityaWs</a>
-                <a target="_blank" href="https://instagram.com/aditya_wahyu_dev"><i class="bi bi-instagram"></i> @aditya_wahyu_dev</a>
-                <a target="_blank" href="https://youtube.com/@aditya-wahyu-dev"><i class="bi bi-youtube"></i> @aditya-wahyu-dev</a>
+                <a target="_blank" href="https://instagram.com/aditya_wahyu_dev"><i class="bi bi-instagram"></i> @aditya wahyu dev</a>
+                <a target="_blank" href="https://youtube.com/@aditya-wahyu-dev"><i class="bi bi-youtube"></i> @aditya wahyu dev</a>
                 <a target="_blank" href="https://blog.madbyad.my.id"><i class="bi bi-blockquote-left"></i> dev blog</a>
                 <a target="_blank" href="https://madbyad.itch.io"><i class="bi bi-joystick"></i> madbyad (itch.io)</a>
                 <a target="_blank" href="https://playstore.madbyad.my.id"><i class="bi bi-google-play"></i> madbyad (playstore)</a>
@@ -45,110 +57,206 @@
         <main class="content-main">
             <h2>ℹ️ About Me</h2>
             <ul>
-                <li>Hello 👋 My name is <b>Adit</b>, and my full name is <b>Aditya Wahyu Santoso</b>! Im a student, a programmer, and a creative one</li>
-                <li>I am a student who excels at programming 🧑‍💻, i like to be creative person 🎨, and i have a passion for digital art in 2D and 3D 🖌️</li>
-                <li>My main skills are programming especially game development 🎮 which required creativity and other skills like drawing and designing 2D/3D and also web development 🌐</li>
-                <li>If you are interested about my games 😉 considering take a look at my <a href="https://madbyad.itch.io">itch.io</a> page or my <a href="https://playstore.madbyad.my.id">playstore</a> page</li>
-                <li><b>🪄 Fun Fact:</b> I also have a developer identity and that is <a href="madbyad.itch.io">MadByAd</a>, it is the name i used when publishing games</li>
+                <li>Hello 👋 My name is <b>Adit</b>, and my full name is <b>Aditya Wahyu Santoso</b>! Im a student, a programmer, and a creative one.</li>
+                <li>I am a student who excels at programming 🧑‍💻, i like to be creative person 🎨, and i have a passion for digital art in 2D and 3D 🖌️.</li>
+                <li>My main skills are programming especially game development 🎮 which required creativity and other skills like drawing and designing 2D/3D and also web development 🌐.</li>
+                <li>If you are interested about my games 😉 considering take a look at my <a href="https://madbyad.itch.io">itch.io</a> page or my <a href="https://playstore.madbyad.my.id">playstore</a> page.</li>
+                <li><b>🪄 Fun Fact:</b> I also have a developer identity and that is <a href="madbyad.itch.io">MadByAd</a>, it is the name i used when publishing games.</li>
             </ul>
             <br>
-            <h2>Projects & Creations</h2>
-            <div id="projects-container"></div>
+            <h2>🛠️ Projects &amp; Creations</h2>
+            <div id="projects-container">
+                <div class="project-card"><img src="https://img.itch.zone/aW1nLzI2MzMyMjExLnBuZw==/315x250%23c/JSjLLW.png">
+                    <p class="project-title">💼 Scary Corporate Life Simulator</p>
+                    <p class="project-type">Game Project</p>
+                    <small class="project-description"></small>
+                    <a href="https://madbyad.itch.io/scary-corporate-life-simulator" class="project-link" target="_blank">See Project 👁️</a>
+
+                </div><div class="project-card"><img src="https://img.itch.zone/aW1nLzE4Nzg4Mzg0LmpwZw==/315x250%23c/IxPofs.jpg">
+                    <p class="project-title">🎃 Pumpkin Nights</p>
+                    <p class="project-type">Game Project</p>
+                    <small class="project-description"></small>
+                    <a href="https://madbyad.itch.io/pumpkin-nights" class="project-link" target="_blank">See Project 👁️</a>
+
+                </div><div class="project-card"><img src="https://img.itch.zone/aW1nLzE5NTYwMjc0LmpwZw==/315x250%23c/jeNFe5.jpg">
+                    <p class="project-title">🏫 Bara Basic</p>
+                    <p class="project-type">Game Project</p>
+                    <small class="project-description"></small>
+                    <a href="https://madbyad.itch.io/bara-basic" class="project-link" target="_blank">See Project 👁️</a>
+
+                </div><div class="project-card"><img src="https://img.itch.zone/aW1nLzI1MzEwMjA3LnBuZw==/315x250%23c/8tG0Dm.png">
+                    <p class="project-title">🌐 Shindura Story</p>
+                    <p class="project-type">Study Project (Game)</p>
+                    <small class="project-description"></small>
+                    <a href="https://madbyad.itch.io/shindura-story" class="project-link" target="_blank">See Project 👁️</a>
+
+                </div><div class="project-card"><img src="https://img.itch.zone/aW1nLzI1MjIyMzE4LnBuZw==/315x250%23c/FVYC0a.png">
+                    <p class="project-title">🛰️ Idle Space Station</p>
+                    <p class="project-type">Study Project (Game)</p>
+                    <small class="project-description"></small>
+                    <a href="https://madbyad.itch.io/idle-space-station" class="project-link" target="_blank">See Project 👁️</a>
+
+                </div><div class="project-card">
+                    <p class="project-title">🟩 Top Craft</p>
+                    <p class="project-type">Study Project (Game)</p>
+                    <small class="project-description"></small>
+                    <a href="https://adit.madbyad.my.id/Game-TopCraft" class="project-link" target="_blank">See Project 👁️</a>
+
+                </div><div class="project-card"><img src="https://img.itch.zone/aW1nLzI1MjIxMTIzLnBuZw==/315x250%23c/daVLNz.png">
+                    <p class="project-title">🧱 The Running Wall</p>
+                    <p class="project-type">Study Project (Game)</p>
+                    <small class="project-description"></small>
+                    <a href="https://madbyad.itch.io/the-running-wall" class="project-link" target="_blank">See Project 👁️</a>
+
+                </div><div class="project-card"><img src="https://img.itch.zone/aW1nLzE5NzI4NzU2LmpwZw==/315x250%23c/81O2HE.jpg">
+                    <p class="project-title">🌌 Map Of The Solar System</p>
+                    <p class="project-type">Educational Web Application</p>
+                    <small class="project-description"></small>
+                    <a href="https://madbyad.itch.io/map-of-the-solar-system" class="project-link" target="_blank">See Project 👁️</a>
+
+                </div><div class="project-card">
+                    <p class="project-title">🚢 Sinking of Adiska 1024th Fleet</p>
+                    <p class="project-type">School Video Project (VFX, Videography)</p>
+                    <small class="project-description"></small>
+                    <a href="https://youtu.be/5HELwBEt7wE?si=TiE8vaiUZZwoXrFl" class="project-link" target="_blank">See Project 👁️</a>
+
+                </div><div class="project-card">
+                    <p class="project-title">🪐 IPAS Tata Surya</p>
+                    <p class="project-type">Study Project (Web App)</p>
+                    <small class="project-description">sebuah repositori untuk menyimpan model digital planet untuk pembelajaran IPAS</small>
+                    <a href="https://adit.madbyad.my.id/IPAS-TataSurya" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/IPAS-TataSurya" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🧥 Gedhe Endhase</p>
+                    <p class="project-type">Design Concept (Website)</p>
+                    <small class="project-description"><em>(web design concept)</em></small>
+                    <a href="https://adit.madbyad.my.id/GedheEndhase" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/GedheEndhase" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🏙️ Urbanex</p>
+                    <p class="project-type">Design Concept (Website)</p>
+                    <small class="project-description"><em>(Web Design Concept)</em></small>
+                    <a href="https://adit.madbyad.my.id/Urbanex" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/Urbanex" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🙏 Generator Kartu Maaf Digital</p>
+                    <p class="project-type">Mini Project (Website)</p>
+                    <small class="project-description">Generator link kartu maaf digital adalah sebuah webapp untuk membuat sebuah situs kartu maaf digital sederhana, tanpa login dan benar-benar gratis dengan menggunakan fitur URL query, pengguna bisa membuat situs kartu maaf digital sendiri tanpa harus membuat akun atau menyimpannya di sebuah database. Situs ini dibuat untuk merayakan lebaran 2026 dengan cara yang lebih menarik dan seru</small>
+                    <a href="https://adit.madbyad.my.id/kartu-maaf" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/kartu-maaf" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🕌 Kartu Ucapan Puasa 2026</p>
+                    <p class="project-type">Mini Project (Website)</p>
+                    <small class="project-description">Repositori ini digunakan untuk menyimpan situs sederhana, yaitu sebuah situs kartu ucapan digital ✉️ menyambut datangnya bulan suci ramadhan 🌙 tahun 1447H / 2026M dan berjalannya ibada puasa 🤲</small>
+                    <a href="https://adit.madbyad.my.id/kartu-ucapan-puasa-2026M" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/kartu-ucapan-puasa-2026M" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🎊 Web Tahun Baru 2022</p>
+                    <p class="project-type">Mini Project (Website)</p>
+                    <small class="project-description">Mini project, website untuk menyambut tahun baru 2022!</small>
+                    <a href="https://adit.madbyad.my.id/Web-Tahun-Baru-2022/" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/Web-Tahun-Baru-2022" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">😎 Emoji Logo Generator</p>
+                    <p class="project-type">Web Application</p>
+                    <small class="project-description">A simple webapp to generate logo using open source emojis <em>(Google Noto Color Emoji, Microsoft Fluent Emoji, and OpenMoji)</em> for free and easily! Created initially to decorate my github repositories mostly my various libraries, utility script, and addon repository for a certain programming language</small>
+                    <a href="https://adit.madbyad.my.id/emoji-logo-generator" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/emoji-logo-generator" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🌿 Adit Nutrition Facts Generator</p>
+                    <p class="project-type">Web Application</p>
+                    <small class="project-description">This is <strong>Adit's Nutrition Facts Generator</strong>, a simple webapp that was created for the purpose of creating nutrition facts label, you can use this app for free and it was originally created for helping me designing 3D product packaging which require a nutrition facts label design and placement on the product. However you can use the tool as you wish</small>
+                    <a href="https://adit.madbyad.my.id/adit-nutrition-facts-generator" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/adit-nutrition-facts-generator" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🎴 Adit Itch Card Generator</p>
+                    <p class="project-type">Web Application</p>
+                    <small class="project-description"><strong>(Unreliable)</strong> this is a simple Web App that i created to download my itch.io game card instead of screenshooting it for my instagram post. Due to CORS policy, the app may be unreliable and slow when it comes to loading image, so be cautious. I thought of releasing it here and making the code open in case you wanna use it and you can modify it to use your own proxy since this code uses an open public proxy which is slow</small>
+                    <a href="https://adit.madbyad.my.id/adit-itch-card-generator" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/adit-itch-card-generator" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">📸 Adit Social Button Generator</p>
+                    <p class="project-type">Web Application</p>
+                    <small class="project-description">This is <strong>Adit's Social Button Generator</strong> simple WebApp that was created for the purpose of decorating github README profile, this app can create social media buttons like these and you can customize the text and the color of button aswell, primarily created for decorating github README, this social media button can be used for others though, if you wanted too</small>
+                    <a href="https://adit.madbyad.my.id/adit-social-button-generator" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/adityaws/adit-social-button-generator" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">💾 Godot Saves Utility</p>
+                    <p class="project-type">Godot Utility</p>
+                    <small class="project-description">The Godot Saves Utility script is a utility script that i made and decided to share. It simplifies saving game data and its the perfect choice for a small game who needs a small, quick, and flexible way to store its game data. Initially build for my game <a href="https://madbyad.itch.io/scary-corporate-life-simulator">Scary Corporate Life Simulator</a> which is a small game and i decided to create a small save utility for any other of my game project that is a small game</small>
+                    <a href="https://github.com/madbyad/Godot-Saves-Utility" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/Godot-Saves-Utility" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">📡 Godot HTTP Module</p>
+                    <p class="project-type">Godot Addon</p>
+                    <small class="project-description">The Godot HTTP Module is a simple GDScript addon aims at simplifying sending HTTP Request using the Godot HTTP Request Node by providing an interface that is more easier to use. It support standard REST API such as GET, POST, PUT, PATCH, and DELETE and can also send the data in a HTML form like format, JSON and even can do multiple file uploads at the same time!</small>
+                    <a href="https://github.com/madbyad/Godot-HTTP-Module" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/Godot-HTTP-Module" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🌐 MadMad HTTP Catcher</p>
+                    <p class="project-type">Programming Tool</p>
+                    <small class="project-description">HTTP Catcher is a simple and small PHP application designed to catch HTTP/REST API request for inspection and debugging. It was created by me for helping mysefl inspecting HTTP request that was sended from Godot HTTPRequest Node but it can also be used for catching HTTP Request from other sources</small>
+                    <a href="https://github.com/MadByAd/MADMAD-HTTP-Catcher" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/MADMAD-HTTP-Catcher" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">📃 GX DocPyGen</p>
+                    <p class="project-type">Python Tool</p>
+                    <small class="project-description">GX DOCPYGEN which is an abbreviation of GDExtension Documentation Python Generator is a simple yet effective single file python script that was created to aid GDExtension development in writing documentation. You see, GDExtension uses XML for documentation instead of reading the C++ file, because i haven't found a tool that do this for me <em>(as of writing this script in 2024, but i only released it now 2026)</em> i wrote this simple python script that parses every header file for GDExtension documentation and convert it into an XML structure. Originally it took me just around half a day to write the script, but now that im gonna release i have made some changes and its better than the original</small>
+                    <a href="https://github.com/MadByAd/gx-docpygen" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/gx-docpygen" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🔧 Kubikka Mesh Tool</p>
+                    <p class="project-type">Game Dev Tool</p>
+                    <small class="project-description">This project is more of a tool that i've created, the purpose of this tool is to be able to inspect meshes. Since i wanted Kubikka to also have custom model block like torches and lantern in Minecraft, so i've created this project to be able to inspect and convert mesh into code so i will have more control on which face should i show, uv coordinates, and more. I decided to put it online in case for something</small>
+                    <a href="https://github.com/MadByAd/Kubikka-Mesh-Tool" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/Kubikka-Mesh-Tool" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🛠️ Kubikka Project</p>
+                    <p class="project-type">Game Project Prototype</p>
+                    <small class="project-description">Kubikka is a project that i am currently making, my hope is that Kubikka will be a multiplayer sandbox game where the data instead stored on local machine it will be stored on a server so anyone can see and share your creations. this version of Kubikka is mainly created to test the performance of voxel engine on the Godot Game Engine and i can definitely say it runs quite well even on lower hardware. This project is open for anyone to modify on</small>
+                    <a href="https://github.com/MadByAd/Kubikka-Alpha" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/Kubikka-Alpha" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🐘 MPL DateTime</p>
+                    <p class="project-type">PHP Library</p>
+                    <small class="project-description">The MPL (MadByAd PHP Library) DateTime is a library that is created as simple and easy to use date and time system. This library include, easily format and get the current date or/and time, a calculator for calculating time such as what the date is 20 days later or what the date is 20 days previously</small>
+                    <a href="https://github.com/MadByAd/MPL-DateTime" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/MPL-DateTime" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🐘 MPL Verify</p>
+                    <p class="project-type">PHP Library</p>
+                    <small class="project-description">The MPL (MadByAd PHP Library) Verify is library that can be used for verifying form data input. This library contains a list of methods for verifying the incoming form data</small>
+                    <a href="https://github.com/MadByAd/MPL-Verify" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/MPL-Verify" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🐘 MPL LongPoll</p>
+                    <p class="project-type">PHP Library</p>
+                    <small class="project-description">The MPL (MadByAd PHP Library) Long Poll is a library purposely created for providing an easy interface to implement a real time communication with HTTP Long Polling. Although HTTP Long Polling may be an outdated technique (because of WebSocket), it is easier to implement in PHP rather than Websocket, and can be used to create a seamless real time communication (though there may be slight delay in seconds)</small>
+                    <a href="https://github.com/MadByAd/MPL-LongPoll" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/MPL-LongPoll" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">📜 MJL LongPoll</p>
+                    <p class="project-type">Javascript Library</p>
+                    <small class="project-description">The MJL (MadByAd Javascript Library) LongPoll is a library that can be used alongside with MPL LongPoll library to create a real time communication using the HTTP Long Polling methods, although it may seem outdated but it is easier to implement especially in a language like PHP. MJL LongPoll library is created to help the client side of an application communicate with the server</small>
+                    <a href="https://github.com/MadByAd/MJL-LongPoll" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/MJL-LongPoll" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🐘 MPL MySQL</p>
+                    <p class="project-type">PHP Library</p>
+                    <small class="project-description">The MPL (MadByAd PHP Library) MySQL is a PHP library used to provide an easy interface for communicating with a mysql database. This library include a query runner to run your own written query (require an extensive knowledge of MYSQL), a query builder for easily writing querries or CRUD (stands for CREATE, READ, UPDATE, DELETE) which allows you to run the 4 basic query of mysql which is <code>INSERT</code>, <code>SELECT</code>, <code>UPDATE</code>, <code>DELETE</code> (The query builder and CRUD require minimal knowledge of mysql query)</small>
+                    <a href="https://github.com/MadByAd/MPL-MySQL" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/MPL-MySQL" class="project-link" target="_blank">See Repository 📂</a>
+                </div><div class="project-card">
+                    <p class="project-title">🐘 MPL NumberConverter</p>
+                    <p class="project-type">PHP Library</p>
+                    <small class="project-description">The MPL (MadByAd PHP Library) Number Converter is a simple PHP library which is used for number conversion and others such as converting a number to a roman numeral e.g <code>12</code> to <code>XII</code>, abbreviating a number e.g <code>25.690</code> to <code>25.6K</code>, formatting a number e.g <code>1000000</code> to <code>1.000.000</code> and other number manipulation function.</small>
+                    <a href="https://github.com/MadByAd/MPL-NumberConverter" class="project-link" target="_blank">See Project 👁️</a>
+                    <a href="https://github.com/madbyad/MPL-NumberConverter" class="project-link" target="_blank">See Repository 📂</a>
+                </div></div>
             <br>
-            <small>&copy; 2026 Aditya Wahyu Santoso / MadByAd</small>
+            <small>© 2026 Aditya Wahyu Santoso / MadByAd</small>
         </main>
     </div>
-
-    <script>
-        async function getItchData(itchUrl, card) {
-            try {
-                const jsonUrl = itchUrl.endsWith('/') ? `${itchUrl}data.json` : `${itchUrl}/data.json`;
-                const response = await fetch(jsonUrl);
-                const data = await response.json();
-                card.innerHTML = `<img src="${data.cover_image}">` + card.innerHTML;
-            } catch (e) {
-                console.error("Itch API error:", e);
-                return null;
-            }
-        }
-
-        async function getReadmeSnippet(repoLink, card) {
-            try {
-                const rawUrl = repoLink.replace('github.com', 'raw.githubusercontent.com') + '/main/README.md';
-                const response = await fetch(rawUrl);
-                if (!response.ok) return null;
-
-                const text = await response.text();
-                const lines = text.split('\n');
-
-                for (let line of lines) {
-                    let cleanLine = line.trim();
-
-                    if (cleanLine == "") continue;
-                    if (cleanLine.startsWith('#')) continue;
-                    if (cleanLine.startsWith('!')) continue;
-                    if (cleanLine.startsWith('<')) continue;
-                    if (cleanLine.startsWith('[')) continue;
-
-                    card.querySelector(".project-description").innerHTML = snarkdown(cleanLine);
-                    return
-                }
-                return null;
-            } catch (e) {
-                return null;
-            }
-        }
-
-        async function loadProjects() {
-            const username = 'adityaws';
-            const url = `https://raw.githubusercontent.com/adityaws/${username}/main/README.md`;
-            const container = document.getElementById('projects-container');
-
-            try {
-                const response = await fetch(url);
-                const text = await response.text();
-                const lines = text.split('\n');
-                const projectRows = lines.filter(line => line.trim().startsWith('|')).slice(2);
-
-                projectRows.forEach(row => {
-                    const cols = row.split('|').map(c => c.trim()).filter(c => c !== "");
-
-                    if (cols.length >= 3) {
-                        const title = cols[0];
-                        const type = cols[1].replace(/\*/g, '');
-                        const extractLink = (str) => {
-                            const match = str.match(/\((https?:\/\/[^\)]+)\)/);
-                            return match ? match[1] : null;
-                        };
-
-                        const projectLink = extractLink(cols[2]);
-                        const repoLink = cols[3] ? extractLink(cols[3]) : null;
-                        const card = document.createElement('div');
-                        card.className = 'project-card';
-                        card.innerHTML = `
-                            <p class="project-title">${title}</p>
-                            <p class="project-type">${type}</p>
-                            <small class="project-description"></small>
-                            <a href="${projectLink}" class="project-link" target="_blank">See Project 👁️</a>
-                            ${repoLink ? `<a href="${repoLink}" class="project-link" target="_blank">See Repository 📂</a>` : ''}
-                        `;
-                        container.appendChild(card);
-
-                        if (projectLink.startsWith("https://madbyad.itch.io/")) {
-                            getItchData(projectLink, card);
-                        }
-                        if (repoLink != null && repoLink.startsWith("https://github.com/")) {
-                            getReadmeSnippet(repoLink, card);
-                        }
-                    }
-                });
-            } catch (error) {
-                console.error("Failed to fetch README:", error);
-            }
-        }
-
-        loadProjects();
-    </script>
 
 </body>
 </html>

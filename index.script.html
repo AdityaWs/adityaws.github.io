@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+    <meta name="description" content="Hello 👋 i am Aditya Wahyu Santoso, a student, a developer, and an artist">
+    <meta name="keywords" content="Personal Website, Student, Programmer, Developer, Game Developer, Artist, Aditya, Adit">
+    <title>Aditya Wahyu Santoso</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./index.css">
+
+    <script src="https://unpkg.com/snarkdown@2.0.0/dist/snarkdown.umd.js"></script>
+
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="links">
+        <a href="./index.html" class="link-home"></a>
+        <a href="https://madbyad.itch.io" target="_blank" class="link-games"></a>
+        <a href="./about.html" class="link-about"></a>
+    </div>
+
+    <div class="content">
+        <aside class="content-profile">
+            <div class="profile-image">
+                <img src="https://madbyad.my.id/image/Aditya.png" alt="profile picture">
+            </div>
+            <div class="profile-title">
+                <h1>Aditya Wahyu Santoso</h1> <span>/</span>
+                <p style="
+                    background: linear-gradient(90deg, #20205c, #440b3a);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    color: transparent;">@AdityaWahyuDev</p> <span>/ </span>
+                <p>MadByAd</p>
+            </div>
+            <p class="profile-bio">
+                Hello 👋 i am Aditya Wahyu Santoso / Dev, you can call me Adit or Madbyad! that's my developer name. I have an expertise on programming and creative arts
+            </p>
+            <div class="profile-links">
+                <a target="_blank" href="https://github.com/adityaws"><i class="bi bi-github"></i> @AdityaWs</a>
+                <a target="_blank" href="https://instagram.com/aditya_wahyu_dev"><i class="bi bi-instagram"></i> @aditya_wahyu_dev</a>
+                <a target="_blank" href="https://youtube.com/@aditya-wahyu-dev"><i class="bi bi-youtube"></i> @aditya-wahyu-dev</a>
+                <a target="_blank" href="https://blog.madbyad.my.id"><i class="bi bi-blockquote-left"></i> dev blog</a>
+                <a target="_blank" href="https://madbyad.itch.io"><i class="bi bi-joystick"></i> madbyad (itch.io)</a>
+                <a target="_blank" href="https://playstore.madbyad.my.id"><i class="bi bi-google-play"></i> madbyad (playstore)</a>
+                <a target="_blank" href="https://madbyad.my.id"><i class="bi bi-globe2"></i> madbyad (website)</a>
+            </div>
+        </aside>
+        <main class="content-main">
+            <h2>ℹ️ About Me</h2>
+            <ul>
+                <li>Hello 👋 My name is <b>Adit</b>, and my full name is <b>Aditya Wahyu Santoso</b>! Im a student, a programmer, and a creative one.</li>
+                <li>I am a student who excels at programming 🧑‍💻, i like to be creative person 🎨, and i have a passion for digital art in 2D and 3D 🖌️.</li>
+                <li>My main skills are programming especially game development 🎮 which required creativity and other skills like drawing and designing 2D/3D and also web development 🌐.</li>
+                <li>If you are interested about my games 😉 considering take a look at my <a href="https://madbyad.itch.io">itch.io</a> page or my <a href="https://playstore.madbyad.my.id">playstore</a> page.</li>
+                <li><b>🪄 Fun Fact:</b> I also have a developer identity and that is <a href="madbyad.itch.io">MadByAd</a>, it is the name i used when publishing games.</li>
+            </ul>
+            <br>
+            <h2>🛠️ Projects & Creations</h2>
+            <div id="projects-container"></div>
+            <br>
+            <small>&copy; 2026 Aditya Wahyu Santoso / MadByAd</small>
+        </main>
+    </div>
+
+    <script>
+        async function getItchData(itchUrl, card) {
+            try {
+                const jsonUrl = itchUrl.endsWith('/') ? `${itchUrl}data.json` : `${itchUrl}/data.json`;
+                const response = await fetch(jsonUrl);
+                const data = await response.json();
+                card.innerHTML = `<img src="${data.cover_image}">` + card.innerHTML;
+            } catch (e) {
+                console.error("Itch API error:", e);
+                return null;
+            }
+        }
+
+        async function getReadmeSnippet(repoLink, card) {
+            try {
+                const rawUrl = repoLink.replace('github.com', 'raw.githubusercontent.com') + '/main/README.md';
+                const response = await fetch(rawUrl);
+                if (!response.ok) return null;
+
+                const text = await response.text();
+                const lines = text.split('\n');
+
+                for (let line of lines) {
+                    let cleanLine = line.trim();
+
+                    if (cleanLine == "") continue;
+                    if (cleanLine.startsWith('#')) continue;
+                    if (cleanLine.startsWith('!')) continue;
+                    if (cleanLine.startsWith('<')) continue;
+                    if (cleanLine.startsWith('[')) continue;
+
+                    card.querySelector(".project-description").innerHTML = snarkdown(cleanLine);
+                    return
+                }
+                return null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        async function loadProjects() {
+            const username = 'adityaws';
+            const url = `https://raw.githubusercontent.com/adityaws/${username}/main/README.md`;
+            const container = document.getElementById('projects-container');
+
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const lines = text.split('\n');
+                const projectRows = lines.filter(line => line.trim().startsWith('|')).slice(2);
+
+                projectRows.forEach(row => {
+                    const cols = row.split('|').map(c => c.trim()).filter(c => c !== "");
+
+                    if (cols.length >= 3) {
+                        const title = cols[0];
+                        const type = cols[1].replace(/\*/g, '');
+                        const extractLink = (str) => {
+                            const match = str.match(/\((https?:\/\/[^\)]+)\)/);
+                            return match ? match[1] : null;
+                        };
+
+                        const projectLink = extractLink(cols[2]);
+                        const repoLink = cols[3] ? extractLink(cols[3]) : null;
+                        const card = document.createElement('div');
+                        card.className = 'project-card';
+                        card.innerHTML = `
+                            <p class="project-title">${title}</p>
+                            <p class="project-type">${type}</p>
+                            <small class="project-description"></small>
+                            <a href="${projectLink}" class="project-link" target="_blank">See Project 👁️</a>
+                            ${repoLink ? `<a href="${repoLink}" class="project-link" target="_blank">See Repository 📂</a>` : ''}
+                        `;
+                        container.appendChild(card);
+
+                        if (projectLink.startsWith("https://madbyad.itch.io/")) {
+                            getItchData(projectLink, card);
+                        }
+                        if (repoLink != null && repoLink.startsWith("https://github.com/")) {
+                            getReadmeSnippet(repoLink, card);
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error("Failed to fetch README:", error);
+            }
+        }
+
+        loadProjects();
+    </script>
+
+</body>
+</html>

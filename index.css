@@ -8,6 +8,7 @@
 
 body {
     background: whitesmoke;
+    overflow-x: hidden;
 }
 
 @keyframes background_scrolling {
@@ -32,15 +33,96 @@ body {
     opacity: .2;
 }
 
+.links {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 32px;
+    padding-top: 32px;
+}
+
+.links a {
+    width: 128px;
+    height: 64px;
+}
+
+.links a:hover {
+    filter: invert(100%)
+            drop-shadow(3px 0px 0px #4444dd)
+            drop-shadow(-3px 0px 0px #4444dd)
+            drop-shadow(0px 3px 0px #4444dd)
+            drop-shadow(0px -3px 0px #4444dd);
+}
+
+@keyframes link__home {
+    0% {
+        background-image: url("./buttons/home.png");
+    }
+    33% {
+        background-image: url("./buttons/home2.png");
+    }
+    66% {
+        background-image: url("./buttons/home3.png");
+    }
+    100% {
+        background-image: url("./buttons/home.png");
+    }
+}
+
+.link-home {
+    background-image: url("./buttons/home.png");
+    animation: link__home 0.6s steps(1) infinite;
+}
+
+@keyframes link__games {
+    0% {
+        background-image: url("./buttons/games.png");
+    }
+    33% {
+        background-image: url("./buttons/games2.png");
+    }
+    66% {
+        background-image: url("./buttons/games3.png");
+    }
+    100% {
+        background-image: url("./buttons/games.png");
+    }
+}
+
+.link-games {
+    background-image: url("./buttons/games.png");
+    animation: link__games 0.7s steps(1) infinite;
+}
+
+@keyframes link__about {
+    0% {
+        background-image: url("./buttons/about.png");
+    }
+    33% {
+        background-image: url("./buttons/about2.png");
+    }
+    66% {
+        background-image: url("./buttons/about3.png");
+    }
+    100% {
+        background-image: url("./buttons/about.png");
+    }
+}
+
+.link-about {
+    background-image: url("./buttons/about.png");
+    animation: link__about 0.9s steps(1) infinite;
+}
+
 .content {
     display: flex;
     justify-content: center;
     margin-top: 48px;
+    column-gap: 32px;
 }
 
 .content-profile {
-    max-width: 350px;
-    padding: 1rem;
+    max-width: calc(350px - 1rem);
+    /* padding: 1rem; */
 }
 
 .profile-image img {
@@ -75,21 +157,30 @@ body {
 
 .profile-links {
     padding-top: 1rem;
+    margin-bottom: 32px;
 }
 
 .profile-links a {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     background: white;
     border: 1px solid #ddd;
     border-radius: 10px;
     text-decoration: none;
     margin-bottom: .5rem;
-    color: #111;
+    color: #551A8B;
+    transform-origin: center;
+    transition: 0.25s;
+}
+
+.profile-links a:hover {
+    scale: 110%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .profile-links a > i {
     margin-right: .25rem;
+    color: #111;
 }
 
 /*
@@ -105,11 +196,13 @@ body {
 }
 
 .content-main li {
-    margin-left: 24px;
+    margin-bottom: 16px;
+    list-style: none;
 }
 
 .content-main h2 {
     margin-bottom: 1rem;
+    font-size: 2.25rem;
 }
 
 .project-card, .project-link {
@@ -135,6 +228,7 @@ body {
 
 .project-card img {
     border-radius: 5px;
+    width: 100%;
 }
 
 .project-title {
@@ -156,4 +250,80 @@ body {
     text-decoration: none;
     margin-right: .5rem;
     font-size: 0.875rem;
+}
+
+@media (max-width: 1280px) {
+    #projects-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .project-card {
+        width: 315px;
+    }
+    .content-main {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .content-profile {
+        max-width: 512px;
+        width: calc(100% - 2rem);
+    }
+    .content-main {
+        max-width: calc(100% - 64px);
+    }
+    .content-main h2 {
+        text-align: center;
+    }
+    .content-main ul {
+        max-width: 500px;
+        margin-inline: auto;
+    }
+    .profile-image img {
+        display: flex;
+        justify-content: center;
+        margin-inline: auto;
+        margin-bottom: 32px;
+    }
+    .profile-title {
+        text-align: center;
+    }
+    .profile-links {
+        display: block;
+        column-count: 2;
+        column-gap: 1rem;
+        column-gap: 8px;
+    }
+    #projects-container {
+        display: block;
+        column-count: 2;
+        column-gap: 1rem;
+        max-width: 700px;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 780px) {
+    #projects-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .project-card {
+        width: 100%;
+        max-width: 315px;
+    }
+    .links a {
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
